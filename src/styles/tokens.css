@@ -1,0 +1,20 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-ink: #010101;
+  --color-aqua: #00ffdb;
+  --color-purple: #8000ff;
+  --color-location: #8d37f6;
+  --font-ui: 'Montserrat', Arial, sans-serif;
+  --font-game: 'Press Start 2P', monospace;
+  --radius-control: 13px;
+  --radius-card: 9px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --ease-ui: cubic-bezier(0.22, 1, 0.36, 1);
+  --z-dropdown: 40;
+  --z-sticky: 30;
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-19T08:34:21.1667275-06:00",
+  "title": "Design System: NativoPass Baseline",
+  "extensions": {
+    "colorMeta": {
+      "brand-aqua": {
+        "role": "primary",
+        "displayName": "Nativo Aqua",
+        "canonical": "#00ffdb",
+        "tonalRamp": ["#00332c", "#006657", "#009982", "#00ccaf", "#00ffdb", "#4dffe7", "#99fff1", "#e5fffb"]
+      },
+      "brand-purple": {
+        "role": "primary",
+        "displayName": "Nativo Purple",
+        "canonical": "#8000ff",
+        "tonalRamp": ["#1a0033", "#330066", "#4d0099", "#6600cc", "#8000ff", "#a64dff", "#cc99ff", "#f2e5ff"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "App White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#262626", "#4d4d4d", "#737373", "#999999", "#bfbfbf", "#d9d9d9", "#f2f2f2", "#ffffff"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Hero Display", "purpose": "Centered carousel headlines with thin-to-heavy emphasis." },
+      "body": { "displayName": "Interface Body", "purpose": "Controls, values, and everyday interface copy." },
+      "game": { "displayName": "Arcade Display", "purpose": "Nativo Rewards game messaging only." }
+    },
+    "shadows": [
+      { "name": "dropdown-lift", "value": "0 8px 8px rgba(0, 0, 0, 0.18)", "purpose": "Separates the open location menu from categories." },
+      { "name": "navigation-separation", "value": "0 -3px 10px rgba(0, 0, 0, 0.08)", "purpose": "Separates persistent navigation from scrolling content." },
+      { "name": "device-presentation", "value": "0 28px 65px rgba(0, 0, 0, 0.52)", "purpose": "Desktop presentation frame only." }
+    ],
+    "motion": [
+      { "name": "ui-state", "value": "180ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Buttons, selection, and menu state feedback." },
+      { "name": "hero-crossfade", "value": "550ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Crossfades between the supplied hero slides." }
+    ],
+    "breakpoints": [
+      { "name": "app-mode", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Location Control",
+      "kind": "input",
+      "refersTo": "location-control",
+      "description": "White location selector that turns purple while expanded.",
+      "html": "<button class=\"ds-location\"><svg viewBox=\"0 0 24 24\"><path d=\"M12 22s7-6.07 7-13A7 7 0 0 0 5 9c0 6.93 7 13 7 13Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"9\" r=\"2.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg><span>Ubicación</span><b>⌄</b></button>",
+      "css": ".ds-location{width:274px;height:50px;padding:0 19px;border:0;border-radius:13px;background:#fff;color:#555456;display:flex;align-items:center;gap:12px;font:700 16px Montserrat,Arial,sans-serif}.ds-location svg{width:22px;color:#9464ff}.ds-location span{flex:1;text-align:left}.ds-location:hover{background:#f4f2f6}.ds-location:focus-visible{outline:3px solid #00ffdb;outline-offset:3px}"
+    },
+    {
+      "name": "Category Card",
+      "kind": "card",
+      "refersTo": "category-card",
+      "description": "Gradient category tile with a white line icon and outlined pill label.",
+      "html": "<button class=\"ds-category\"><span class=\"ds-category-icon\">♨</span><span class=\"ds-category-label\">GASTRONOMÍA</span></button>",
+      "css": ".ds-category{width:180px;aspect-ratio:1.18;border:0;border-radius:9px;background:linear-gradient(145deg,#ffe600 5%,#ff7300 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.ds-category-icon{width:61px;height:54px;border:1px solid #fff;border-radius:8px;display:grid;place-items:center;font-size:26px}.ds-category-label{border:1px solid #fff;border-radius:999px;padding:2px 10px;font:400 12px Montserrat,Arial,sans-serif;letter-spacing:.04em}.ds-category:hover{filter:saturate(1.12)}.ds-category:focus-visible{outline:3px solid #00ffdb;outline-offset:3px}"
+    },
+    {
+      "name": "Rewards Banner",
+      "kind": "custom",
+      "refersTo": "rewards-banner",
+      "description": "Purple pill establishing the two-color Nativo Rewards identity.",
+      "html": "<div class=\"ds-rewards\"><span>◉</span><strong><i>NATIVO</i> REWARDS</strong></div>",
+      "css": ".ds-rewards{min-height:59px;padding:8px 13px;border-radius:999px;background:#8000ff;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font:800 22px Montserrat,Arial,sans-serif}.ds-rewards>span,.ds-rewards i{color:#00ffdb}.ds-rewards i{font-style:normal}"
+    },
+    {
+      "name": "Snake CTA",
+      "kind": "button",
+      "description": "Outlined arcade button used only over the Snake experience.",
+      "html": "<button class=\"ds-snake-btn\">INICIAR<br>JUEGO</button>",
+      "css": ".ds-snake-btn{min-width:260px;min-height:64px;border:2px solid #fff;border-radius:13px;background:rgba(0,0,0,.28);color:#fff;font:400 18px/1.25 'Press Start 2P',monospace}.ds-snake-btn:hover{background:rgba(128,0,255,.72)}.ds-snake-btn:focus-visible{outline:3px solid #00ffdb;outline-offset:3px}"
+    },
+    {
+      "name": "Bottom Navigation",
+      "kind": "nav",
+      "refersTo": "bottom-navigation",
+      "description": "Three equal navigation targets separated by thin dividers.",
+      "html": "<nav class=\"ds-nav\"><button aria-label=\"Inicio\">⌂</button><i></i><button aria-label=\"Escanear QR\">▦</button><i></i><button aria-label=\"Menú\">☰</button></nav>",
+      "css": ".ds-nav{width:390px;height:96px;padding:0 27px;border-radius:27px 27px 0 0;background:#fff;color:#010101;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;align-items:center;box-shadow:0 -3px 10px rgba(0,0,0,.08)}.ds-nav button{width:54px;height:54px;justify-self:center;border:0;border-radius:50%;background:transparent;font-size:28px}.ds-nav button:hover{background:rgba(0,255,219,.11)}.ds-nav button:focus-visible{outline:3px solid #00ffdb}.ds-nav i{width:1px;height:29px;background:#010101}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Rewarded Everyday",
+    "overview": "This is the faithful visual baseline for the supplied NativoPass mobile homepage: photographic hero slides, a high-saturation category spectrum, an arcade rewards moment, and persistent navigation. Fidelity wins before redesign work begins.",
+    "keyCharacteristics": [
+      "Full-width mobile sections with no hero gutters.",
+      "Aqua and purple persistent brand accents.",
+      "Six supplied category gradients.",
+      "Press Start 2P isolated to Nativo Rewards.",
+      "Desktop phone presentation and full-screen mobile app mode."
+    ],
+    "rules": [
+      { "name": "The Supplied Palette Rule", "body": "Baseline work uses the documented color endpoints exactly.", "section": "colors" },
+      { "name": "The Arcade Boundary Rule", "body": "Press Start 2P never appears outside Nativo Rewards.", "section": "typography" },
+      { "name": "The App-First Rule", "body": "Device-frame depth never competes with the app artwork.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do preserve the supplied assets, copy, order, gradients, and typography in the baseline.",
+      "Do remove the desktop device frame at 768px and below.",
+      "Do preserve this state before redesign variants."
+    ],
+    "donts": [
+      "Don't silently redesign the baseline.",
+      "Don't make future variants feel like a generic coupon website, fintech product, or QR scanner.",
+      "Don't replace supplied category gradients and line icons with a generic system."
+    ]
+  }
+}

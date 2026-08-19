@@ -1,0 +1,100 @@
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: var(--color-white);
+  }
+
+  .prototype-stage {
+    display: block;
+    min-height: 100dvh;
+    padding: 0;
+  }
+
+  .device-frame {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    border-radius: 0;
+    background: var(--color-white);
+    box-shadow: none;
+  }
+
+  .device-speaker {
+    display: none;
+  }
+
+  .device-screen {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-media {
+    height: 120vw;
+    max-height: 468px;
+    min-height: 384px;
+  }
+
+  .hero-brand {
+    height: 94px;
+    padding-inline: 27px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero--qr .hero-title {
+    font-size: 21px;
+  }
+
+  .location-picker {
+    padding-inline: 46px;
+  }
+
+  .location-menu {
+    right: 46px;
+    left: 46px;
+  }
+
+  .rewards-banner p {
+    font-size: 20px;
+  }
+
+  .snake-copy h2 {
+    font-size: 16px;
+  }
+
+  .snake-copy p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  .location-picker {
+    padding-inline: 28px;
+  }
+
+  .location-menu {
+    right: 28px;
+    left: 28px;
+  }
+
+  .category-label {
+    padding-inline: 5px;
+    font-size: 10px;
+  }
+
+  .rewards-banner p {
+    font-size: 17px;
+  }
+
+  .snake-button {
+    right: 42px;
+    left: 42px;
+    font-size: 15px;
+  }
+}
