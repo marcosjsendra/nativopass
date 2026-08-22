@@ -1,0 +1,258 @@
+.app-shell--iteration-1 .hero-slide--active {
+  transform-origin: 50% 38%;
+  animation: hero-image-settle 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.app-shell--iteration-1 .hero-brand img {
+  animation: hero-logo-enter 560ms 90ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.app-shell--iteration-1 .hero-title {
+  animation: hero-tagline-enter 520ms 190ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-shell--iteration-1 .membership-cta-region {
+  transform-origin: 50% 100%;
+  animation: hero-cta-enter 580ms 270ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.app-shell--iteration-1 .category-section--scroll-reveal {
+  transform: translate3d(0, 12px, 0);
+  opacity: 0.72;
+}
+
+.app-shell--iteration-1 .category-section--scroll-reveal .category-card {
+  transform-origin: 50% 100%;
+  transform: translate3d(0, 22px, 0) scale(0.965);
+  opacity: 0.52;
+  filter: saturate(0.8);
+}
+
+.app-shell--iteration-1 .category-section--visible {
+  animation: category-section-enter 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-shell--iteration-1 .category-section--visible .category-card {
+  animation: category-card-enter 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--category-index, 0) * 55ms);
+}
+
+.app-shell--iteration-1 .snake-card--scroll-reveal {
+  transform: translate3d(0, 26px, 0) scale(0.975);
+  opacity: 0.7;
+  clip-path: inset(8% 2.5% 0 round 37px);
+}
+
+.app-shell--iteration-1 .snake-card--scroll-reveal.snake-card--visible {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  clip-path: inset(0 0 0 round 37px);
+  animation: snake-card-enter 680ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.snake-reveal-scan--iteration-one {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 43%,
+    rgba(128, 0, 255, 0.14) 47%,
+    rgba(0, 255, 219, 0.78) 50%,
+    rgba(128, 0, 255, 0.2) 53%,
+    transparent 59%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.app-shell--iteration-1 .snake-card--visible .snake-reveal-scan--iteration-one {
+  animation: snake-card-scan 720ms 70ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.app-shell--iteration-1 .snake-card--visible .snake-video--iteration-one {
+  transform-origin: 50% 44%;
+  animation: snake-video-settle 760ms 30ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.app-shell--iteration-1 .snake-card--visible .rewards-banner--iteration-one {
+  animation: snake-ui-enter 460ms 120ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.app-shell--iteration-1 .snake-card--visible .snake-copy--iteration-one {
+  animation: snake-ui-enter 460ms 220ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.app-shell--iteration-1 .snake-card--visible .snake-button--iteration-one {
+  animation: snake-button-enter 500ms 300ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes hero-image-settle {
+  from {
+    transform: scale(1.04);
+    opacity: 0.78;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-logo-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-tagline-enter {
+  from {
+    transform: translate3d(-50%, 10px, 0);
+    opacity: 0.48;
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-cta-enter {
+  from {
+    transform: translate3d(0, 16px, 0) scale(0.985);
+    opacity: 0.5;
+    clip-path: inset(0 0 18% 0 round 0 0 18px 18px);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 0 0 18px 18px);
+  }
+}
+
+@keyframes category-section-enter {
+  from {
+    transform: translate3d(0, 12px, 0);
+    opacity: 0.72;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes category-card-enter {
+  from {
+    transform: translate3d(0, 22px, 0) scale(0.965);
+    opacity: 0.52;
+    filter: saturate(0.8);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    filter: saturate(1);
+  }
+}
+
+@keyframes snake-card-enter {
+  from {
+    transform: translate3d(0, 26px, 0) scale(0.975);
+    opacity: 0.7;
+    clip-path: inset(8% 2.5% 0 round 37px);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    clip-path: inset(0 0 0 round 37px);
+  }
+}
+
+@keyframes snake-card-scan {
+  from {
+    transform: translate3d(0, -78%, 0);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.82;
+  }
+
+  72% {
+    opacity: 0.56;
+  }
+
+  to {
+    transform: translate3d(0, 78%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes snake-video-settle {
+  from {
+    transform: scale(1.045);
+    filter: brightness(0.78) saturate(0.72);
+  }
+
+  to {
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+  }
+}
+
+@keyframes snake-ui-enter {
+  from {
+    transform: translate3d(0, 14px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes snake-button-enter {
+  from {
+    transform: translate3d(0, 18px, 0) scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell--iteration-1 .hero-slide--active,
+  .app-shell--iteration-1 .hero-brand img,
+  .app-shell--iteration-1 .hero-title,
+  .app-shell--iteration-1 .membership-cta-region,
+  .app-shell--iteration-1 .category-section,
+  .app-shell--iteration-1 .category-card,
+  .app-shell--iteration-1 .snake-card--iteration-one,
+  .app-shell--iteration-1 .snake-card--iteration-one *,
+  .snake-reveal-scan--iteration-one {
+    animation: none !important;
+  }
+
+  .app-shell--iteration-1 .snake-card--iteration-one {
+    transform: none;
+    opacity: 1;
+    clip-path: none;
+  }
+
+  .snake-reveal-scan--iteration-one {
+    display: none;
+  }
+}

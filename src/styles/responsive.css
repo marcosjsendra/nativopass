@@ -12,6 +12,15 @@
     padding: 0;
   }
 
+  .prototype-workbench {
+    display: block;
+    width: 100%;
+  }
+
+  .iteration-controls {
+    display: none;
+  }
+
   .device-frame {
     width: 100%;
     height: 100dvh;
@@ -38,6 +47,12 @@
     min-height: 384px;
   }
 
+  .hero--iteration-one .hero-media {
+    height: calc(120vw + 200px);
+    max-height: 668px;
+    min-height: 584px;
+  }
+
   .hero-brand {
     height: 94px;
     padding-inline: 27px;
@@ -60,20 +75,25 @@
     left: 46px;
   }
 
-  .rewards-banner p {
-    font-size: 20px;
+  .rewards-banner--iteration-one p {
+    font-size: 15px;
   }
 
-  .snake-copy h2 {
+  .snake-copy--iteration-one h2 {
     font-size: 16px;
   }
 
-  .snake-copy p {
+  .snake-copy--iteration-one p {
     font-size: 13px;
   }
 }
 
 @media (max-width: 350px) {
+  .hero--lifestyle-new .hero-title {
+    width: calc(100% - 54px);
+    font-size: 17px;
+  }
+
   .location-picker {
     padding-inline: 28px;
   }
@@ -83,18 +103,63 @@
     left: 28px;
   }
 
+  .membership-cta-region {
+    right: 12px;
+    left: 12px;
+    height: 30%;
+  }
+
+  .membership-cta--guest,
+  .membership-cta--member {
+    padding-right: 14px;
+    padding-bottom: 20px;
+    padding-left: 14px;
+  }
+
+  .membership-guest-title,
+  .membership-member-title {
+    font-size: 16px;
+  }
+
+  .membership-guest-copy,
+  .membership-days {
+    font-size: 11px;
+  }
+
+  .membership-cta {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    grid-template-rows: 32px 40px;
+    gap: 6px;
+  }
+
+  .membership-days-row {
+    gap: 6px;
+  }
+
+  .membership-day-count {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .membership-cta--member button {
+    min-width: 108px;
+    font-size: 11px;
+  }
+
   .category-label {
     padding-inline: 5px;
     font-size: 10px;
   }
 
-  .rewards-banner p {
-    font-size: 17px;
+  .rewards-banner--iteration-one p {
+    font-size: 13px;
   }
 
-  .snake-button {
-    right: 42px;
-    left: 42px;
-    font-size: 15px;
+  .snake-button--iteration-one {
+    right: 24px;
+    left: 24px;
+    font-size: 12px;
   }
 }

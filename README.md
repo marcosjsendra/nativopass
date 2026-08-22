@@ -31,6 +31,14 @@ npm run preview
 - Desktop and laptop viewports display the app inside a centered, restrained phone frame.
 - Viewports at or below 768px remove the frame and use the full screen.
 - The app content scrolls independently while the bottom navigation remains visible.
+- Desktop review mode includes named iteration controls beside the phone frame.
+
+## Iterations
+
+- `Original`: the faithful Figma baseline (`?iteration=original`).
+- `Iteration 1`: the first client-directed hero and membership CTA update (`?iteration=iteration-1`).
+
+Iteration 1 includes prototype controls for reviewing the signed-out and member CTA states. Selecting `UNIRME` also transitions the app preview into the member state.
 
 ## Baseline interactions
 
@@ -46,6 +54,7 @@ npm run preview
 - [Design system](./DESIGN.md)
 - [Development handoff](./docs/nativopass-homepage-redesign-handoff.md)
 - [Initial copy and visual tokens](./docs/initial-copy-and-content.md)
+- [Iteration register](./docs/iterations.md)
 
 ## Deployment
 

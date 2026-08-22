@@ -1,17 +1,18 @@
-import Hero from '../../components/Hero/Hero.jsx'
-import CategoryGrid from '../../components/CategoryGrid/CategoryGrid.jsx'
-import SnakeRewards from '../../components/SnakeRewards/SnakeRewards.jsx'
-import BottomNavigation from '../../components/BottomNavigation/BottomNavigation.jsx'
+import OriginalHome from './OriginalHome.jsx'
+import IterationOneHome from './IterationOneHome.jsx'
 
-export default function Home() {
+const layouts = {
+  original: OriginalHome,
+  'iteration-1': IterationOneHome,
+}
+
+export default function Home({ iteration, membershipState, onMembershipStateChange }) {
+  const ActiveLayout = layouts[iteration] ?? OriginalHome
+
   return (
-    <div className="app-shell">
-      <div className="app-content">
-        <Hero />
-        <CategoryGrid />
-        <SnakeRewards />
-      </div>
-      <BottomNavigation />
-    </div>
+    <ActiveLayout
+      membershipState={membershipState}
+      onMembershipStateChange={onMembershipStateChange}
+    />
   )
 }

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
+import MembershipCta from '../MembershipCta/MembershipCta.jsx'
 
-const slides = [
+const originalSlides = [
   {
     id: 'lifestyle',
     image: '/assets/images/nativo-pass-hero-slide1.png',
@@ -26,6 +27,20 @@ const slides = [
   },
 ]
 
+const iterationOneSlides = [
+  {
+    id: 'lifestyle-new',
+    image: '/assets/images/nativo-pass-hero-slide1-new.png',
+    alt: 'Miembro de NativoPass celebrando un beneficio desde su celular',
+    title: (
+      <>
+        TU ESTILO DE VIDA,
+        <strong> PREMIADO.</strong>
+      </>
+    ),
+  },
+]
+
 const locations = ['Alajuela', 'Puntarenas', 'San José', 'Limón', 'Liberia', 'Cartago']
 
 function PinIcon() {
@@ -37,22 +52,25 @@ function PinIcon() {
   )
 }
 
-export default function Hero() {
+export default function Hero({ iteration, membershipState, onMembershipStateChange }) {
   const prefersReducedMotion = usePrefersReducedMotion()
+  const isRedesignIteration = iteration === 'iteration-1'
+  const slides = isRedesignIteration ? iterationOneSlides : originalSlides
   const [activeSlide, setActiveSlide] = useState(0)
   const [isLocationOpen, setLocationOpen] = useState(false)
   const [location, setLocation] = useState('Ubicación')
   const intervalRef = useRef(null)
+  const activeSlideIndex = activeSlide % slides.length
 
   useEffect(() => {
-    if (prefersReducedMotion) return undefined
+    if (prefersReducedMotion || slides.length < 2) return undefined
 
     intervalRef.current = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length)
     }, 6500)
 
     return () => window.clearInterval(intervalRef.current)
-  }, [prefersReducedMotion])
+  }, [prefersReducedMotion, slides.length])
 
   const advanceSlide = () => {
     setActiveSlide((current) => (current + 1) % slides.length)
@@ -63,54 +81,78 @@ export default function Hero() {
     setLocationOpen(false)
   }
 
-  return (
-    <section className={`hero hero--${slides[activeSlide].id}`} aria-roledescription="carousel" aria-label="Beneficios NativoPass">
-      <button className="hero-media" type="button" onClick={advanceSlide} aria-label="Ver siguiente promoción">
-        {slides.map((slide, index) => (
-          <img
-            className={`hero-slide ${index === activeSlide ? 'hero-slide--active' : ''}`}
-            src={slide.image}
-            alt={index === activeSlide ? slide.alt : ''}
-            aria-hidden={index !== activeSlide}
-            key={slide.id}
-          />
-        ))}
+  const heroMediaContent = (
+    <>
+      {slides.map((slide, index) => (
+        <img
+          className={`hero-slide ${index === activeSlideIndex ? 'hero-slide--active' : ''}`}
+          src={slide.image}
+          alt={index === activeSlideIndex ? slide.alt : ''}
+          aria-hidden={index !== activeSlideIndex}
+          key={slide.id}
+        />
+      ))}
 
-        <div className="hero-brand">
-          <img src="/assets/logos/Nativopass-logo.svg" alt="NativoPass" />
-        </div>
-
-        <h1 className="hero-title" aria-live="polite">{slides[activeSlide].title}</h1>
-
-        <span className="hero-progress" aria-hidden="true">
-          <span key={activeSlide} />
-        </span>
-      </button>
-
-      <div className="location-picker">
-        <button
-          className={`location-trigger ${isLocationOpen ? 'location-trigger--open' : ''}`}
-          type="button"
-          aria-expanded={isLocationOpen}
-          aria-controls="location-menu"
-          onClick={() => setLocationOpen((open) => !open)}
-        >
-          <PinIcon />
-          <span>{location}</span>
-          <i aria-hidden="true" />
-        </button>
-
-        {isLocationOpen && (
-          <div className="location-menu" id="location-menu">
-            {locations.map((item) => (
-              <button type="button" onClick={() => chooseLocation(item)} key={item}>
-                <span>{item}</span>
-                <i aria-hidden="true" />
-              </button>
-            ))}
-          </div>
-        )}
+      <div className={`hero-brand ${isRedesignIteration ? 'hero-brand--plain' : ''}`}>
+        <img src="/assets/logos/Nativopass-logo.svg" alt="NativoPass" />
       </div>
+
+      <h1 className="hero-title" aria-live="polite">{slides[activeSlideIndex].title}</h1>
+
+      {slides.length > 1 && (
+        <span className="hero-progress" aria-hidden="true">
+          <span key={activeSlideIndex} />
+        </span>
+      )}
+    </>
+  )
+
+  return (
+    <section
+      className={`hero hero--${slides[activeSlideIndex].id} ${isRedesignIteration ? 'hero--iteration-one' : 'hero--original'}`}
+      aria-roledescription={isRedesignIteration ? undefined : 'carousel'}
+      aria-label="Beneficios NativoPass"
+    >
+      {isRedesignIteration ? (
+        <div className="hero-media">
+          {heroMediaContent}
+          <MembershipCta
+            membershipState={membershipState}
+            onMembershipStateChange={onMembershipStateChange}
+          />
+        </div>
+      ) : (
+        <button className="hero-media" type="button" onClick={advanceSlide} aria-label="Ver siguiente promoción">
+          {heroMediaContent}
+        </button>
+      )}
+
+      {!isRedesignIteration && (
+        <div className="location-picker">
+          <button
+            className={`location-trigger ${isLocationOpen ? 'location-trigger--open' : ''}`}
+            type="button"
+            aria-expanded={isLocationOpen}
+            aria-controls="location-menu"
+            onClick={() => setLocationOpen((open) => !open)}
+          >
+            <PinIcon />
+            <span>{location}</span>
+            <i aria-hidden="true" />
+          </button>
+
+          {isLocationOpen && (
+            <div className="location-menu" id="location-menu">
+              {locations.map((item) => (
+                <button type="button" onClick={() => chooseLocation(item)} key={item}>
+                  <span>{item}</span>
+                  <i aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )
 }
