@@ -39,7 +39,11 @@
   text-align: left;
   background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
-  transition: border-color 180ms var(--ease-ui), color 180ms ease, background-color 180ms ease, transform 180ms var(--ease-ui);
+  transition:
+    border-color 180ms var(--ease-ui),
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms var(--ease-ui);
 }
 
 .iteration-tabs button:hover,
@@ -88,7 +92,9 @@
 }
 
 .hero--iteration-one .hero-media {
-  height: 668px;
+  --iteration-hero-height: 668px;
+
+  height: var(--iteration-hero-height);
   border-radius: 0 0 28px 28px;
   cursor: default;
 }
@@ -116,7 +122,6 @@
   right: 18px;
   bottom: 18px;
   left: 18px;
-  height: 28%;
   background: transparent;
 }
 
@@ -124,44 +129,78 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 120px;
-  grid-template-rows: 32px 44px;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    'title auxiliary'
-    'copy action';
+    "title auxiliary"
+    "copy action";
   width: 100%;
-  height: 100%;
-  align-content: end;
+  min-height: 142px;
+  align-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 0 20px 24px;
-  border: 1px solid var(--color-white);
-  border-top: 0;
-  border-radius: 0 0 18px 18px;
+  column-gap: 12px;
+  row-gap: 14px;
+  padding: 22px 20px;
+  overflow: hidden;
+  border-radius: 16px;
+  clip-path: inset(0 round 16px);
   color: var(--color-white);
+  isolation: isolate;
+}
+
+.membership-cta::before,
+.membership-cta::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.membership-cta::before {
+  z-index: 1;
+  background: var(--membership-cta-tint);
+}
+
+.membership-cta::after {
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.membership-cta-backdrop {
+  position: absolute;
+  z-index: 0;
+  right: -18px;
+  bottom: -18px;
+  left: -18px;
+  width: calc(100% + 36px);
+  max-width: none;
+  height: var(--iteration-hero-height);
+  object-fit: cover;
+  object-position: center top;
+  filter: blur(5px) brightness(0.8) saturate(1.05);
+  transform: scale(1.045);
+  transform-origin: center bottom;
+}
+
+.membership-cta > :not(.membership-cta-backdrop) {
+  position: relative;
+  z-index: 2;
 }
 
 .membership-cta--guest {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 148, 234, 0) 20%,
-    rgba(0, 148, 234, 0.5) 60%,
-    rgba(0, 148, 234, 0.9) 100%
-  );
+  --membership-cta-tint: rgba(0, 148, 234, 0.3);
 }
 
 .membership-cta--member {
-  background: linear-gradient(
-    to bottom,
-    rgba(54, 10, 98, 0) 20%,
-    rgba(54, 10, 98, 0.5) 60%,
-    rgba(54, 10, 98, 0.5) 100%
-  );
+  --membership-cta-tint: rgba(54, 10, 98, 0.3);
 }
 
 .membership-guest-title {
   grid-area: title;
   grid-column: 1 / -1;
-  align-self: center;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
   font-size: 20px;
   font-weight: 800;
   line-height: 1;
@@ -170,18 +209,20 @@
 
 .membership-guest-copy {
   grid-area: copy;
-  align-self: center;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   max-width: 205px;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.2;
   text-wrap: balance;
 }
 
 .membership-cta button {
   grid-area: action;
   min-width: 82px;
-  min-height: 32px;
+  min-height: 40px;
   align-self: center;
   justify-self: end;
   margin-bottom: 0;
@@ -193,7 +234,9 @@
   font-weight: 800;
   background: var(--color-white);
   cursor: pointer;
-  transition: filter 180ms ease, transform 180ms var(--ease-ui);
+  transition:
+    filter 180ms ease,
+    transform 180ms var(--ease-ui);
 }
 
 .membership-cta button:hover {
@@ -206,7 +249,9 @@
 
 .membership-member-title {
   grid-area: title;
-  align-self: center;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
   font-size: 20px;
   font-weight: 800;
   line-height: 1;
@@ -218,7 +263,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
+  min-height: 40px;
   border-radius: 99px;
   font-size: 13px;
   background: rgba(54, 10, 98, 0.9);
@@ -232,7 +277,7 @@
 .membership-days {
   margin: 0;
   font-size: 13px;
-  line-height: 1.05;
+  line-height: 1.15;
 }
 
 .membership-days-row {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { categories } from '../../data/categories.js'
+import { categories, iterationOneCategories } from '../../data/categories.js'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
 
 export default function CategoryGrid({ iteration }) {
@@ -8,6 +8,7 @@ export default function CategoryGrid({ iteration }) {
   const sectionRef = useRef(null)
   const prefersReducedMotion = usePrefersReducedMotion()
   const shouldRevealOnScroll = iteration === 'iteration-1' && !prefersReducedMotion
+  const visibleCategories = iteration === 'iteration-1' ? iterationOneCategories : categories
 
   useEffect(() => {
     if (!shouldRevealOnScroll) return undefined
@@ -49,7 +50,7 @@ export default function CategoryGrid({ iteration }) {
       aria-label="Categorías de beneficios"
     >
       <div className="category-grid">
-        {categories.map((category, index) => (
+        {visibleCategories.map((category, index) => (
           <button
             className={`category-card ${selected === category.id ? 'category-card--selected' : ''}`}
             style={{ '--category-gradient': category.gradient, '--category-index': index }}

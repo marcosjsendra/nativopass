@@ -52,7 +52,7 @@ function PinIcon() {
   )
 }
 
-export default function Hero({ iteration, membershipState, onMembershipStateChange }) {
+export default function Hero({ iteration, membershipState, onJoin }) {
   const prefersReducedMotion = usePrefersReducedMotion()
   const isRedesignIteration = iteration === 'iteration-1'
   const slides = isRedesignIteration ? iterationOneSlides : originalSlides
@@ -117,8 +117,9 @@ export default function Hero({ iteration, membershipState, onMembershipStateChan
         <div className="hero-media">
           {heroMediaContent}
           <MembershipCta
+            backdropImage={slides[activeSlideIndex].image}
             membershipState={membershipState}
-            onMembershipStateChange={onMembershipStateChange}
+            onJoin={onJoin}
           />
         </div>
       ) : (

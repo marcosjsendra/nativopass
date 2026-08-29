@@ -127,13 +127,13 @@
   from {
     transform: translate3d(0, 16px, 0) scale(0.985);
     opacity: 0.5;
-    clip-path: inset(0 0 18% 0 round 0 0 18px 18px);
+    clip-path: inset(0 0 18% 0 round 16px);
   }
 
   to {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
-    clip-path: inset(0 0 0 0 round 0 0 18px 18px);
+    clip-path: inset(0 0 0 0 round 16px);
   }
 }
 

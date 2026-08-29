@@ -36,3 +36,9 @@ export const categories = [
     gradient: 'linear-gradient(145deg, #ff85d2 5%, #d6008d 100%)',
   },
 ]
+
+const iterationOneCategoryIds = ['turismo', 'gastronomia', 'bienestar', 'hogar']
+
+export const iterationOneCategories = iterationOneCategoryIds.map((categoryId) =>
+  categories.find(({ id }) => id === categoryId),
+)

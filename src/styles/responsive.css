@@ -48,7 +48,9 @@
   }
 
   .hero--iteration-one .hero-media {
-    height: calc(120vw + 200px);
+    --iteration-hero-height: clamp(584px, calc(120vw + 200px), 668px);
+
+    height: var(--iteration-hero-height);
     max-height: 668px;
     min-height: 584px;
   }
@@ -106,14 +108,18 @@
   .membership-cta-region {
     right: 12px;
     left: 12px;
-    height: 30%;
+  }
+
+  .membership-cta-backdrop {
+    right: -12px;
+    left: -12px;
+    width: calc(100% + 24px);
   }
 
   .membership-cta--guest,
   .membership-cta--member {
-    padding-right: 14px;
-    padding-bottom: 20px;
-    padding-left: 14px;
+    min-height: 132px;
+    padding: 18px 14px;
   }
 
   .membership-guest-title,
@@ -126,10 +132,15 @@
     font-size: 11px;
   }
 
+  .membership-guest-copy {
+    min-height: 40px;
+  }
+
   .membership-cta {
     grid-template-columns: minmax(0, 1fr) 108px;
-    grid-template-rows: 32px 40px;
-    gap: 6px;
+    grid-template-rows: auto auto;
+    column-gap: 6px;
+    row-gap: 12px;
   }
 
   .membership-days-row {

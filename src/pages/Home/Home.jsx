@@ -6,13 +6,13 @@ const layouts = {
   'iteration-1': IterationOneHome,
 }
 
-export default function Home({ iteration, membershipState, onMembershipStateChange }) {
+export default function Home({ iteration, membershipState, onJoin }) {
   const ActiveLayout = layouts[iteration] ?? OriginalHome
 
   return (
     <ActiveLayout
       membershipState={membershipState}
-      onMembershipStateChange={onMembershipStateChange}
+      onJoin={onJoin}
     />
   )
 }
