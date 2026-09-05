@@ -81,10 +81,6 @@
   animation: snake-ui-enter 460ms 120ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
-.app-shell--iteration-1 .snake-card--visible .snake-copy--iteration-one {
-  animation: snake-ui-enter 460ms 220ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
-}
-
 .app-shell--iteration-1 .snake-card--visible .snake-button--iteration-one {
   animation: snake-button-enter 500ms 300ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }

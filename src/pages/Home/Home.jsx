@@ -1,9 +1,11 @@
 import OriginalHome from './OriginalHome.jsx'
 import IterationOneHome from './IterationOneHome.jsx'
+import IterationTwoHome from './IterationTwoHome.jsx'
 
 const layouts = {
   original: OriginalHome,
   'iteration-1': IterationOneHome,
+  'iteration-2': IterationTwoHome,
 }
 
 export default function Home({ iteration, membershipState, onJoin }) {

@@ -37,6 +37,7 @@ npm run preview
 
 - `Original`: the faithful Figma baseline (`?iteration=original`).
 - `Iteration 1`: the first client-directed hero and membership CTA update (`?iteration=iteration-1`).
+- `Iteration 2`: Iteration 1 with an alternate Snake mascot animation (`?iteration=iteration-2`).
 
 Iteration 1 includes prototype controls for reviewing the signed-out and member CTA states. Selecting `UNIRME` also transitions the app preview into the member state.
 

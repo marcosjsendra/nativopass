@@ -1,6 +1,7 @@
 const iterationOptions = [
   { id: 'original', label: 'Original' },
   { id: 'iteration-1', label: 'Iteration 1' },
+  { id: 'iteration-2', label: 'Iteration 2' },
 ]
 
 export default function IterationControls({
@@ -29,7 +30,7 @@ export default function IterationControls({
         </div>
       </div>
 
-      {iteration === 'iteration-1' && (
+      {iteration !== 'original' && (
         <div className="iteration-control-group iteration-state-controls">
           <p>Estado del CTA</p>
           <div className="iteration-state-tabs" role="group" aria-label="Estado de membresía">

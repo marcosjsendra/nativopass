@@ -1,9 +1,10 @@
-export default function IterationTwoHome() {
+import IterationOneHome from './IterationOneHome.jsx'
+
+export default function IterationTwoHome(props) {
   return (
-    <div
-      className="app-shell app-shell--iteration-2 app-shell--blank"
-      role="region"
-      aria-label="Lienzo reservado de Iteration 2"
+    <IterationOneHome
+      {...props}
+      snakeVideoSrc="/assets/video/snake-promo-seedance-iteration-2.mp4"
     />
   )
 }

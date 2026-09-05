@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
 
-export default function IterationOneSnakeRewards() {
+export default function IterationOneSnakeRewards({ videoSrc }) {
   const prefersReducedMotion = usePrefersReducedMotion()
   const [started, setStarted] = useState(false)
   const [hasEnteredView, setHasEnteredView] = useState(false)
@@ -50,7 +50,7 @@ export default function IterationOneSnakeRewards() {
       <div className={`snake-card--iteration-one${revealClass}`}>
         <video
           className="snake-video--iteration-one"
-          src="/assets/video/snake-promo-seedance-concept.mp4"
+          src={videoSrc}
           autoPlay={!prefersReducedMotion}
           muted
           loop={!prefersReducedMotion}
@@ -68,18 +68,11 @@ export default function IterationOneSnakeRewards() {
             alt=""
           />
           <p>
-            <span><strong>NATIVO</strong><br></br> REWARD</span>
+            <span><strong>NATIVO</strong><br /> REWARDS</span>
           </p>
         </header>
 
-        <div className="snake-copy--iteration-one">
-          <h2 id="snake-title-iteration-one">
-            <span>JUGÁ</span>
-            <span>SUMÁ</span>
-            <span>CANJEÁ</span>
-          </h2>
-          <p>ATRAPÁ MANZANAS<br />DESBLOQUEÁ PREMIOS</p>
-        </div>
+        <h2 className="sr-only" id="snake-title-iteration-one">Nativo Rewards</h2>
 
         <button
           className="snake-button--iteration-one"

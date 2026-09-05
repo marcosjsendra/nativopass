@@ -21,13 +21,15 @@ Current scope:
 - Adds a first-entry animation sequence for the hero hierarchy and a short stagger across the category cards, with a static reduced-motion alternative.
 - Uses its own isolated page layout and component styles, including the approved NEÓN Snake treatment.
 - Reveals the Snake card once on scroll with a clipped arcade entrance, neon scan, and staggered game UI; reduced-motion users see the settled card immediately.
+- Updates the Snake heading to “NATIVO REWARDS”, removes the instructional copy, and uses a flat purple “JUGÁ AHORA” button with a `#ae52df` border and no black shadow.
+- Replaces the membership plan selector with one ₡2,500 monthly offer and a card-entry form.
 
 ## Iteration 2
 
-Iteration 2 is a hidden, reserved canvas for possible future exploration.
+Iteration 2 is available with `?iteration=iteration-2`.
 
 Current scope:
 
-- It is not listed in the prototype controls or included in the active homepage routing.
-- Requests for `?iteration=iteration-2` fall back safely to Original.
-- Its placeholder file remains dormant and is not included in the production bundle.
+- Inherits the complete Iteration 1 experience, including the membership payment and Snake copy/style updates.
+- Changes only the Snake animation to `snake-promo-seedance-iteration-2.mp4`.
+- Uses a 5-second, 720 × 1280 Seedance 2.0 Mini animation with an alternate alert, glance, blink, and tongue-flick idle beat.

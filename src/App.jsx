@@ -4,7 +4,7 @@ import IterationControls from './components/IterationControls/IterationControls.
 import Home from './pages/Home/Home.jsx'
 import MembershipPayment from './pages/MembershipPayment/MembershipPayment.jsx'
 
-const iterations = ['original', 'iteration-1']
+const iterations = ['original', 'iteration-1', 'iteration-2']
 
 function getInitialIteration() {
   const iteration = new URLSearchParams(window.location.search).get('iteration')
@@ -43,7 +43,7 @@ export default function App() {
     setActiveScreen('home')
   }
 
-  const isMembershipPayment = iteration === 'iteration-1' && activeScreen === 'membership-payment'
+  const isMembershipPayment = iteration !== 'original' && activeScreen === 'membership-payment'
 
   return (
     <main className="prototype-stage">

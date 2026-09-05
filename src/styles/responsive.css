@@ -81,13 +81,6 @@
     font-size: 15px;
   }
 
-  .snake-copy--iteration-one h2 {
-    font-size: 16px;
-  }
-
-  .snake-copy--iteration-one p {
-    font-size: 13px;
-  }
 }
 
 @media (max-width: 350px) {
