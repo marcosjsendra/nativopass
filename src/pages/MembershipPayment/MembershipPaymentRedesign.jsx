@@ -33,7 +33,7 @@ export default function MembershipPaymentRedesign({ onCancel, onPaymentComplete 
           <span aria-hidden="true" />
         </div>
         <div className="membership-renewal-intro">
-          <h1 id="membership-renewal-title">Volvete <span>Miembro+</span></h1>
+          <h1 id="membership-renewal-title">Volvete <span aria-label="Miembro más">Miembro</span></h1>
           <p>Y participá en nuestros torneos</p>
         </div>
       </header>
