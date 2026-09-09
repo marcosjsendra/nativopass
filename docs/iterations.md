@@ -22,7 +22,9 @@ Current scope:
 - Uses its own isolated page layout and component styles, including the approved NEÓN Snake treatment.
 - Reveals the Snake card once on scroll with a clipped arcade entrance, neon scan, and staggered game UI; reduced-motion users see the settled card immediately.
 - Updates the Snake heading to “NATIVO REWARDS”, removes the instructional copy, and uses a flat purple “JUGÁ AHORA” button with a `#ae52df` border and no black shadow.
-- Replaces the membership plan selector with one ₡2,500 monthly offer and a card-entry form.
+- Uses the redesigned membership checkout in `src/pages/MembershipPayment/MembershipPaymentRedesign.jsx`, with isolated styles in `src/styles/membership-payment-redesign.css`. The purple introduction, emphasized benefits, ₡2.500 monthly summary, and free-trial action follow `docs/iteration-1-membership-payment-copy-2.md` (correcting “INCIA” to “INICIÁ”). Both trial billing disclaimers are displayed.
+- Keeps the previous pricing page and styles unchanged as a backup: `src/pages/MembershipPayment/MembershipPayment.jsx` and `src/styles/membership-payment.css`. To compare it, open `?iteration=iteration-1&pricing=backup` and select `UNIRME`. The normal `?iteration=iteration-1` route uses the redesign.
+- Card submission continues to simulate membership activation locally; it does not send card information or charge a payment.
 
 ## Iteration 2
 

@@ -3,6 +3,7 @@ import DeviceFrame from './components/DeviceFrame/DeviceFrame.jsx'
 import IterationControls from './components/IterationControls/IterationControls.jsx'
 import Home from './pages/Home/Home.jsx'
 import MembershipPayment from './pages/MembershipPayment/MembershipPayment.jsx'
+import MembershipPaymentRedesign from './pages/MembershipPayment/MembershipPaymentRedesign.jsx'
 
 const iterations = ['original', 'iteration-1', 'iteration-2']
 
@@ -44,13 +45,16 @@ export default function App() {
   }
 
   const isMembershipPayment = iteration !== 'original' && activeScreen === 'membership-payment'
+  const PaymentPage = new URLSearchParams(window.location.search).get('pricing') === 'backup'
+    ? MembershipPayment
+    : MembershipPaymentRedesign
 
   return (
     <main className="prototype-stage">
       <div className="prototype-workbench">
         <DeviceFrame>
           {isMembershipPayment ? (
-            <MembershipPayment
+            <PaymentPage
               onCancel={() => setActiveScreen('home')}
               onPaymentComplete={completeMembershipPayment}
             />

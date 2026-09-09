@@ -6,7 +6,7 @@ import BottomNavigation from '../../components/BottomNavigation/BottomNavigation
 export default function IterationOneHome({
   membershipState,
   onJoin,
-  snakeVideoSrc = '/assets/video/snake-promo-seedance-concept.mp4',
+  snakeVideoSrc = '/assets/video/snake-promo-seedance-cartoon.mp4',
 }) {
   return (
     <div className="app-shell app-shell--iteration-1">
