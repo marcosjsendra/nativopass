@@ -2,6 +2,8 @@ const iterationOptions = [
   { id: 'original', label: 'Original' },
   { id: 'iteration-1', label: 'Iteration 1' },
   { id: 'iteration-2', label: 'Iteration 2' },
+  { id: 'iteration-3', label: 'Iteration 3' },
+  { id: 'iteration-4', label: 'Iteration 4' },
 ]
 
 export default function IterationControls({

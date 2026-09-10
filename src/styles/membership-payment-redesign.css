@@ -88,7 +88,7 @@
 .membership-renewal-intro h1 span::after {
   position: absolute;
   left: 100%;
-  content: '+';
+  content: "+";
 }
 
 .membership-renewal-intro p {
@@ -121,13 +121,13 @@
 
 .membership-renewal-benefits li {
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
+  grid-template-columns: 18px minmax(0, 1fr);
   align-items: start;
-  gap: 9px;
-  font-size: 12px;
+  gap: 7px;
+  font-size: clamp(11px, 3.15cqw, 12px);
   font-weight: 400;
   line-height: 1.4;
-  text-wrap: pretty;
+  text-wrap: wrap;
 }
 
 .membership-renewal-benefits strong {
@@ -136,8 +136,8 @@
 
 .membership-renewal-check {
   display: grid;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   margin-top: 1px;
   place-items: center;
   border-radius: 50%;
@@ -146,14 +146,17 @@
 }
 
 .membership-renewal-check svg {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
 }
 
 .membership-renewal-plan {
   padding: 14px 18px;
   border: 1px solid #d9cbe9;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .membership-renewal-price-row {
@@ -195,6 +198,8 @@
   font-size: 11px;
   line-height: 1.4;
   border-top: 1px solid #d9cbe9;
+  width: 100%;
+  text-align: center;
 }
 
 .membership-renewal-form fieldset {
@@ -346,6 +351,12 @@
 
   .membership-renewal-price-row strong {
     font-size: 26px;
+  }
+}
+
+@container membership-checkout (max-width: 380px) {
+  .membership-renewal-benefits {
+    margin-inline: -10px;
   }
 }
 

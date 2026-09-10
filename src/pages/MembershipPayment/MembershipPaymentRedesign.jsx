@@ -55,7 +55,7 @@ export default function MembershipPaymentRedesign({ onCancel, onPaymentComplete 
             <h2 id="membership-renewal-plan-title">Membresía mensual</h2>
             <p><strong>₡2.500</strong><span> / mes</span></p>
           </div>
-          <p className="membership-renewal-plan-note">Se cobra al finalizar tu prueba de 14 días. Cancelá antes y no se te cobra nada.</p>
+          <p className="membership-renewal-plan-note">Se cobra al finalizar tu prueba de 14 días.</p>
         </section>
 
         <form className="membership-renewal-form" onSubmit={submitPayment}>

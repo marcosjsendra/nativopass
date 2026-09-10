@@ -5,7 +5,7 @@ import Home from './pages/Home/Home.jsx'
 import MembershipPayment from './pages/MembershipPayment/MembershipPayment.jsx'
 import MembershipPaymentRedesign from './pages/MembershipPayment/MembershipPaymentRedesign.jsx'
 
-const iterations = ['original', 'iteration-1', 'iteration-2']
+const iterations = ['original', 'iteration-1', 'iteration-2', 'iteration-3', 'iteration-4']
 
 function getInitialIteration() {
   const iteration = new URLSearchParams(window.location.search).get('iteration')

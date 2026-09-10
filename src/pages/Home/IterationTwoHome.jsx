@@ -4,7 +4,7 @@ export default function IterationTwoHome(props) {
   return (
     <IterationOneHome
       {...props}
-      snakeVideoSrc="/assets/video/snake-promo-seedance-iteration-2.mp4"
+      snakeVideoSrc="/assets/video/snake-promo-seedance-concept.mp4"
     />
   )
 }
