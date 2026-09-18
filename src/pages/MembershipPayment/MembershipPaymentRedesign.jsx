@@ -4,8 +4,7 @@ import '../../styles/membership-payment-redesign.css'
 
 const benefits = [
   <>Ganá premios de <strong>hasta más de ₡1.000.000.</strong></>,
-  <>Obtené <strong>regalías exclusivas</strong> en nuestros comercios afiliados.</>,
-  <>Prueba gratis de <strong>14 días</strong>, sin compromiso. Cancelá cuando quieras.</>,
+  <>Obtené <strong>regalías exclusivas</strong> en nuestros comercios afiliados.</>
 ]
 
 export default function MembershipPaymentRedesign({ onCancel, onPaymentComplete }) {
@@ -86,7 +85,7 @@ export default function MembershipPaymentRedesign({ onCancel, onPaymentComplete 
               {isProcessing ? 'Procesando…' : 'INICIÁ PRUEBA GRATIS'}
               {!isProcessing && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>}
             </button>
-            <p id="membership-renewal-disclaimer">No se te cobrará hoy. ₡2.500/mes después del día 14.</p>
+            <p id="membership-renewal-disclaimer">Prueba gratis de <strong>14 días</strong>, sin compromiso.<br /> Cancelá cuando quieras.</p>
           </div>
         </form>
       </div>

@@ -22,6 +22,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px 0;
+  margin-top: 24px;
 }
 
 .membership-renewal-nav button {
@@ -63,11 +64,12 @@
   flex-direction: column;
   align-items: center;
   padding: 14px;
+  margin-top: 14px;
 }
 
 .membership-renewal-intro h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 500;
   line-height: 0.9;
   letter-spacing: -0.03em;
@@ -81,7 +83,7 @@
   display: table;
   margin: 2px auto 0;
   color: var(--color-aqua);
-  font-size: 32px;
+  font-size: 42x;
   font-weight: 800;
 }
 
@@ -106,14 +108,13 @@
   gap: 16px;
   padding: 14px 22px max(12px, env(safe-area-inset-bottom));
   margin: 20px;
-  margin-top: 0px;
   background: var(--color-white);
   border-radius: 20px;
 }
 
 .membership-renewal-benefits {
   display: grid;
-  gap: 20px;
+  gap: 16px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -151,7 +152,7 @@
 }
 
 .membership-renewal-plan {
-  padding: 14px 18px;
+  padding: 28px 18px;
   border: 1px solid #d9cbe9;
   border-radius: 12px;
   display: flex;
@@ -236,7 +237,7 @@
   grid-column: 1 / -1;
 }
 
-.membership-renewal-fields label > span {
+.membership-renewal-fields label>span {
   font-size: 12px;
   font-weight: 600;
 }
@@ -329,7 +330,7 @@
   max-width: 40ch;
   margin: 8px auto 0;
   color: #59486e;
-  font-size: 11px;
+  font-size: clamp(11px, 3.15cqw, 12px);
   line-height: 1.4;
   text-align: center;
   text-wrap: pretty;
@@ -406,7 +407,7 @@
     gap: 8px 12px;
   }
 
-  .membership-renewal-fields label > span {
+  .membership-renewal-fields label>span {
     font-size: 11px;
   }
 
@@ -500,6 +501,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .membership-renewal *,
   .membership-renewal *::before,
   .membership-renewal *::after {
