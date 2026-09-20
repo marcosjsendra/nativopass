@@ -125,10 +125,11 @@
   grid-template-columns: 18px minmax(0, 1fr);
   align-items: center;
   gap: 20px;
-  font-size: clamp(15px, 3.4cqw, 17px);
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
   text-wrap: wrap;
+  margin-left: 20px;
 }
 
 .membership-renewal-benefits strong {
