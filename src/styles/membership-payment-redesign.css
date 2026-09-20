@@ -106,7 +106,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   gap: 16px;
-  padding: 14px 22px max(12px, env(safe-area-inset-bottom));
+  padding: 18px 22px max(12px, env(safe-area-inset-bottom));
   margin: 20px;
   background: var(--color-white);
   border-radius: 20px;
@@ -123,9 +123,9 @@
 .membership-renewal-benefits li {
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
-  align-items: start;
-  gap: 7px;
-  font-size: clamp(11px, 3.15cqw, 12px);
+  align-items: center;
+  gap: 20px;
+  font-size: clamp(15px, 3.4cqw, 17px);
   font-weight: 400;
   line-height: 1.4;
   text-wrap: wrap;
@@ -137,8 +137,8 @@
 
 .membership-renewal-check {
   display: grid;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   margin-top: 1px;
   place-items: center;
   border-radius: 50%;
@@ -152,7 +152,7 @@
 }
 
 .membership-renewal-plan {
-  padding: 28px 18px;
+  padding: 18px 18px;
   border: 1px solid #d9cbe9;
   border-radius: 12px;
   display: flex;
@@ -245,7 +245,7 @@
 .membership-renewal-fields input {
   width: 100%;
   min-width: 0;
-  height: 44px;
+  height: 38px;
   padding: 0 12px;
   border: 1px solid #b6a9c6;
   border-radius: 8px;
@@ -290,7 +290,7 @@
 .membership-renewal-action button {
   display: flex;
   width: 100%;
-  min-height: 46px;
+  min-height: 40px;
   align-items: center;
   justify-content: center;
   gap: 12px;
