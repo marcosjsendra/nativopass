@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NativoPass — Centro de Descargas de Assets</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <!-- Pure Modular Stylesheets -->
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/asset-hub.css" />
+  </head>
+  <body class="asset-hub-body">
+    <div class="hub-container">
+      
+      <!-- Hub Header -->
+      <header class="hub-header">
+        <div class="hub-brand">
+          <img src="../assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+          <span class="hub-brand-badge">Developer Handoff Hub</span>
+        </div>
+        <nav class="hub-nav-links">
+          <a class="hub-btn hub-btn-outline" href="../index.html">← Ver Prototipo Workbench</a>
+          <a class="hub-btn hub-btn-outline" href="home-redesign.html" target="_blank">Página Rediseño ↗</a>
+          <a class="hub-btn hub-btn-outline" href="membership-payment.html" target="_blank">Página Pago ↗</a>
+        </nav>
+      </header>
+
+      <!-- Main Download Banners -->
+      <section class="hub-downloads-grid" aria-label="Opciones de descarga">
+        
+        <!-- Complete Assets Zip Card -->
+        <div class="hub-download-card hub-download-card--featured">
+          <div>
+            <div class="hub-card-header">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <div>
+                <h2 class="hub-card-title">Descargar Paquete Completo de Assets</h2>
+                <p class="hub-card-desc">Contiene todos los recursos: logotipos vectoriales, íconos de categorías, imágenes UI en alta resolución y videos de Snake (MP4).</p>
+              </div>
+            </div>
+            <div class="hub-card-meta">
+              <span><strong>Tamaño:</strong> ~68 MB</span>
+              <span><strong>Formato:</strong> .ZIP</span>
+              <span><strong>Estructura:</strong> /assets intacta</span>
+            </div>
+          </div>
+          <a class="hub-btn hub-btn-primary" href="../downloads/nativopass-assets.zip" download="nativopass-assets.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            DESCARGAR ASSETS COMPLETOS (.ZIP)
+          </a>
+        </div>
+
+        <!-- Complete Handoff Package Zip Card (Codebase + Assets) -->
+        <div class="hub-download-card">
+          <div>
+            <div class="hub-card-header">
+              <div class="hub-card-icon" style="background: rgba(0, 255, 219, 0.15); color: #00ffdb;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <h2 class="hub-card-title">Descargar Paquete Handoff Completo</h2>
+                <p class="hub-card-desc">Entrega integral para el desarrollador: código fuente HTML5, estilos modulares CSS3, scripts Vanilla JS, documentación técnica y la carpeta completa de assets.</p>
+              </div>
+            </div>
+            <div class="hub-card-meta">
+              <span><strong>Tamaño:</strong> ~68 MB</span>
+              <span><strong>Formato:</strong> .ZIP</span>
+              <span><strong>Incluye:</strong> Código + Assets + README</span>
+            </div>
+          </div>
+          <a class="hub-btn hub-btn-accent" href="../downloads/nativopass-handoff-complete.zip" download="nativopass-handoff-complete.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            DESCARGAR HANDOFF COMPLETO (.ZIP)
+          </a>
+        </div>
+
+      </section>
+
+      <!-- Filter Bar -->
+      <section class="hub-filter-bar">
+        <div class="hub-filter-tabs" role="tablist">
+          <button class="hub-tab-btn is-active" data-filter="all">Todos los recursos</button>
+          <button class="hub-tab-btn" data-filter="logos">Logotipos</button>
+          <button class="hub-tab-btn" data-filter="icons">Íconos SVG</button>
+          <button class="hub-tab-btn" data-filter="images">Imágenes</button>
+          <button class="hub-tab-btn" data-filter="videos">Videos MP4 (7)</button>
+        </div>
+        <input class="hub-search-input" type="search" id="asset-search" placeholder="Buscar recurso…" />
+      </section>
+
+      <!-- Asset Visual Grid -->
+      <main class="hub-asset-grid" id="asset-grid">
+
+        <!-- LOGOS -->
+        <article class="hub-asset-item" data-category="logos" data-name="nativopass-logo.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/logos/Nativopass-logo.svg" alt="NativoPass Logo Blanco" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">Nativopass-logo.svg</h3>
+            <p class="hub-asset-path">assets/logos/Nativopass-logo.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Logo SVG</span>
+              <a class="hub-asset-link" href="../assets/logos/Nativopass-logo.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="logos" data-name="nativopass-logo-7101f7.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/logos/Nativopass-logo-7101F7.svg" alt="NativoPass Logo Morado" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">Nativopass-logo-7101F7.svg</h3>
+            <p class="hub-asset-path">assets/logos/Nativopass-logo-7101F7.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Logo SVG</span>
+              <a class="hub-asset-link" href="../assets/logos/Nativopass-logo-7101F7.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="logos" data-name="nativopass-n-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/logos/nativopass-n-icon.svg" alt="NativoPass Isotipo N" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">nativopass-n-icon.svg</h3>
+            <p class="hub-asset-path">assets/logos/nativopass-n-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Isotipo SVG</span>
+              <a class="hub-asset-link" href="../assets/logos/nativopass-n-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="logos" data-name="nativopass-n-icon-7101f7.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/logos/Nativopass-n-icon-7101F7.svg" alt="NativoPass Isotipo N Morado" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">Nativopass-n-icon-7101F7.svg</h3>
+            <p class="hub-asset-path">assets/logos/Nativopass-n-icon-7101F7.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Isotipo SVG</span>
+              <a class="hub-asset-link" href="../assets/logos/Nativopass-n-icon-7101F7.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CATEGORY ICONS -->
+        <article class="hub-asset-item" data-category="icons" data-name="turismo-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/turismo-icon.svg" alt="Turismo Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">turismo-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/turismo-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/turismo-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="gastronomia-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/gastronomia-icon.svg" alt="Gastronomía Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">gastronomia-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/gastronomia-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/gastronomia-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="bienestar-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/bienestar-icon.svg" alt="Bienestar Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">bienestar-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/bienestar-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/bienestar-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="hogar-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/hogar-icon.svg" alt="Hogar Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">hogar-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/hogar-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/hogar-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="convenienciai-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/convenienciai-icon.svg" alt="Conveniencia Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">convenienciai-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/convenienciai-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/convenienciai-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="estetica-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/category-section/estetica-icon.svg" alt="Estética Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">estetica-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/category-section/estetica-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Categoría SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/category-section/estetica-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NAV ICONS -->
+        <article class="hub-asset-item" data-category="icons" data-name="home.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/nav-bar/home.svg" alt="Inicio Nav Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">home.svg</h3>
+            <p class="hub-asset-path">assets/icons/nav-bar/home.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Barra Nav SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/nav-bar/home.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="qr-codes.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/nav-bar/qr-codes.svg" alt="QR Nav Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">qr-codes.svg</h3>
+            <p class="hub-asset-path">assets/icons/nav-bar/qr-codes.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Barra Nav SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/nav-bar/qr-codes.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="menu.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/nav-bar/menu.svg" alt="Menu Nav Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">menu.svg</h3>
+            <p class="hub-asset-path">assets/icons/nav-bar/menu.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Barra Nav SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/nav-bar/menu.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="icons" data-name="nativo-reward-icon.svg">
+          <div class="hub-asset-preview">
+            <img src="../assets/icons/snake-game-section/nativo-reward-icon.svg" alt="Nativo Reward Icon" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">nativo-reward-icon.svg</h3>
+            <p class="hub-asset-path">assets/icons/snake-game-section/nativo-reward-icon.svg</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Rewards SVG</span>
+              <a class="hub-asset-link" href="../assets/icons/snake-game-section/nativo-reward-icon.svg" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- IMAGES -->
+        <article class="hub-asset-item" data-category="images" data-name="nativo-pass-hero-slide1-new.png">
+          <div class="hub-asset-preview">
+            <img src="../assets/images/nativo-pass-hero-slide1-new.png" alt="Hero Slide 1 Redesign" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">nativo-pass-hero-slide1-new.png</h3>
+            <p class="hub-asset-path">assets/images/nativo-pass-hero-slide1-new.png</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Hero Rediseño</span>
+              <a class="hub-asset-link" href="../assets/images/nativo-pass-hero-slide1-new.png" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="images" data-name="nativo-pass-hero-slide1.png">
+          <div class="hub-asset-preview">
+            <img src="../assets/images/nativo-pass-hero-slide1.png" alt="Hero Slide 1 Original" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">nativo-pass-hero-slide1.png</h3>
+            <p class="hub-asset-path">assets/images/nativo-pass-hero-slide1.png</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Hero Original</span>
+              <a class="hub-asset-link" href="../assets/images/nativo-pass-hero-slide1.png" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="images" data-name="nativo-pass-hero-slide2.png">
+          <div class="hub-asset-preview">
+            <img src="../assets/images/nativo-pass-hero-slide2.png" alt="Hero Slide 2 Original" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">nativo-pass-hero-slide2.png</h3>
+            <p class="hub-asset-path">assets/images/nativo-pass-hero-slide2.png</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Hero Original</span>
+              <a class="hub-asset-link" href="../assets/images/nativo-pass-hero-slide2.png" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="images" data-name="payment-background.png">
+          <div class="hub-asset-preview">
+            <img src="../assets/images/payment-background.png" alt="Fondo Pantalla de Pago" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">payment-background.png</h3>
+            <p class="hub-asset-path">assets/images/payment-background.png</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Fondo Pago</span>
+              <a class="hub-asset-link" href="../assets/images/payment-background.png" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="images" data-name="reward-token.png">
+          <div class="hub-asset-preview">
+            <img src="../assets/images/snake-game/reward-token.png" alt="Token Nativo Rewards" />
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">reward-token.png</h3>
+            <p class="hub-asset-path">assets/images/snake-game/reward-token.png</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Insignia UI</span>
+              <a class="hub-asset-link" href="../assets/images/snake-game/reward-token.png" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIDEOS (ALL 7 MP4 FILES) -->
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance-cartoon.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance-cartoon.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance-cartoon.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance-cartoon.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Iteración 1 (Hero)</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance-cartoon.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance-iteration-2.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance-iteration-2.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance-iteration-2.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance-iteration-2.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Iteración 2</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance-iteration-2.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance-iteration-3.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance-iteration-3.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance-iteration-3.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance-iteration-3.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Iteración 3</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance-iteration-3.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance-iteration-4.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance-iteration-4.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance-iteration-4.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance-iteration-4.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Iteración 4</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance-iteration-4.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Seedance Base</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-promo-seedance-concept.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-promo-seedance-concept.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-promo-seedance-concept.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-promo-seedance-concept.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Concepto MP4</span>
+              <a class="hub-asset-link" href="../assets/video/snake-promo-seedance-concept.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hub-asset-item" data-category="videos" data-name="snake-animation.mp4">
+          <div class="hub-asset-preview">
+            <video src="../assets/video/snake-animation.mp4" muted loop autoplay playsinline></video>
+          </div>
+          <div class="hub-asset-info">
+            <h3 class="hub-asset-name">snake-animation.mp4</h3>
+            <p class="hub-asset-path">assets/video/snake-animation.mp4</p>
+            <div class="hub-asset-actions">
+              <span class="hub-asset-tag">Original Figma</span>
+              <a class="hub-asset-link" href="../assets/video/snake-animation.mp4" download>Descargar ↓</a>
+            </div>
+          </div>
+        </article>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="hub-footer">
+        <p>NativoPass Frontend Handoff Package &bull; Código HTML5, CSS3 y Vanilla JS puro sin dependencias externas.</p>
+      </footer>
+    </div>
+
+    <!-- Filter Script -->
+    <script>
+      (function() {
+        const tabs = document.querySelectorAll('.hub-tab-btn');
+        const items = document.querySelectorAll('.hub-asset-item');
+        const searchInput = document.getElementById('asset-search');
+        let currentFilter = 'all';
+
+        function filterAssets() {
+          const query = searchInput.value.toLowerCase().trim();
+          items.forEach(item => {
+            const cat = item.getAttribute('data-category');
+            const name = item.getAttribute('data-name').toLowerCase();
+            const matchesCat = (currentFilter === 'all' || cat === currentFilter);
+            const matchesQuery = (!query || name.includes(query));
+            item.style.display = (matchesCat && matchesQuery) ? 'flex' : 'none';
+          });
+        }
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            currentFilter = tab.getAttribute('data-filter');
+            filterAssets();
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener('input', filterAssets);
+        }
+      })();
+    </script>
+  </body>
+</html>

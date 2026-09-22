@@ -1,0 +1,169 @@
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: var(--color-white);
+  }
+
+  .prototype-stage {
+    display: block;
+    min-height: 100dvh;
+    padding: 0;
+  }
+
+  .prototype-workbench {
+    display: block;
+    width: 100%;
+  }
+
+  .iteration-controls {
+    display: none;
+  }
+
+  .device-frame {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    border-radius: 0;
+    background: var(--color-white);
+    box-shadow: none;
+  }
+
+  .device-speaker {
+    display: none;
+  }
+
+  .device-screen {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-media {
+    height: 120vw;
+    max-height: 468px;
+    min-height: 384px;
+  }
+
+  .hero--iteration-one .hero-media {
+    --iteration-hero-height: clamp(584px, calc(120vw + 200px), 668px);
+
+    height: var(--iteration-hero-height);
+    max-height: 668px;
+    min-height: 584px;
+  }
+
+  .hero-brand {
+    height: 94px;
+    padding-inline: 27px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero--qr .hero-title {
+    font-size: 21px;
+  }
+
+  .location-picker {
+    padding-inline: 46px;
+  }
+
+  .location-menu {
+    right: 46px;
+    left: 46px;
+  }
+
+  .rewards-banner--iteration-one p {
+    font-size: 15px;
+  }
+
+}
+
+@media (max-width: 350px) {
+  .hero--lifestyle-new .hero-title {
+    width: calc(100% - 54px);
+    font-size: 17px;
+  }
+
+  .location-picker {
+    padding-inline: 28px;
+  }
+
+  .location-menu {
+    right: 28px;
+    left: 28px;
+  }
+
+  .membership-cta-region {
+    right: 12px;
+    left: 12px;
+  }
+
+  .membership-cta-backdrop {
+    right: -12px;
+    left: -12px;
+    width: calc(100% + 24px);
+  }
+
+  .membership-cta--guest,
+  .membership-cta--member {
+    min-height: 132px;
+    padding: 18px 14px;
+  }
+
+  .membership-guest-title,
+  .membership-member-title {
+    font-size: 16px;
+  }
+
+  .membership-guest-copy,
+  .membership-days {
+    font-size: 11px;
+  }
+
+  .membership-guest-copy {
+    min-height: 40px;
+  }
+
+  .membership-cta {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    grid-template-rows: auto auto;
+    column-gap: 6px;
+    row-gap: 12px;
+  }
+
+  .membership-days-row {
+    gap: 6px;
+  }
+
+  .membership-day-count {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .membership-cta--member button {
+    min-width: 108px;
+    font-size: 11px;
+  }
+
+  .category-label {
+    padding-inline: 5px;
+    font-size: 10px;
+  }
+
+  .rewards-banner--iteration-one p {
+    font-size: 13px;
+  }
+
+  .snake-button--iteration-one {
+    right: 24px;
+    left: 24px;
+    font-size: 12px;
+  }
+}

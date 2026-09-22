@@ -1,0 +1,511 @@
+.membership-renewal {
+  container: membership-checkout / size;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  color: #261c35;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--color-white) 60%),
+    url("../assets/images/payment-background.png") right / cover no-repeat;
+}
+
+.membership-renewal-hero {
+  flex-shrink: 0;
+  color: var(--color-white);
+  /* height: 400px; */
+}
+
+.membership-renewal-nav {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 0;
+  margin-top: 24px;
+}
+
+.membership-renewal-nav button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.membership-renewal-nav button:hover {
+  background: #5a00c9;
+}
+
+.membership-renewal-nav img {
+  width: min(190px, 100%);
+  justify-self: center;
+  filter: brightness(0) invert(1);
+}
+
+.membership-renewal svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.membership-renewal-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+  margin-top: 14px;
+}
+
+.membership-renewal-intro h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.membership-renewal-intro h1 span {
+  position: relative;
+  display: table;
+  margin: 2px auto 0;
+  color: var(--color-aqua);
+  font-size: 42x;
+  font-weight: 800;
+}
+
+.membership-renewal-intro h1 span::after {
+  position: absolute;
+  left: 100%;
+  content: "+";
+}
+
+.membership-renewal-intro p {
+  margin: 7px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.membership-renewal-content {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+  padding: 18px 22px max(12px, env(safe-area-inset-bottom));
+  margin: 20px;
+  background: var(--color-white);
+  border-radius: 20px;
+}
+
+.membership-renewal-benefits {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.membership-renewal-benefits li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-wrap: wrap;
+  margin-left: 20px;
+}
+
+.membership-renewal-benefits strong {
+  font-weight: 750;
+}
+
+.membership-renewal-check {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  place-items: center;
+  border-radius: 50%;
+  color: #14352f;
+  background: var(--color-aqua);
+}
+
+.membership-renewal-check svg {
+  width: 13px;
+  height: 13px;
+}
+
+.membership-renewal-plan {
+  padding: 18px 18px;
+  border: 1px solid #d9cbe9;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.membership-renewal-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+.membership-renewal-price-row h2 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.membership-renewal-price-row p {
+  margin: 0;
+  color: #5916ac;
+  white-space: nowrap;
+}
+
+.membership-renewal-price-row strong {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.membership-renewal-price-row span {
+  color: #59486e;
+  font-size: 12px;
+}
+
+.membership-renewal-plan-note {
+  margin: 8px 0 0;
+  padding-top: 8px;
+  color: #59486e;
+  font-size: 11px;
+  line-height: 1.4;
+  border-top: 1px solid #d9cbe9;
+  width: 100%;
+  text-align: center;
+}
+
+.membership-renewal-form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.membership-renewal-form legend {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.membership-renewal-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+}
+
+.membership-renewal-fields label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.membership-renewal-field--wide {
+  grid-column: 1 / -1;
+}
+
+.membership-renewal-fields label>span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.membership-renewal-fields input {
+  width: 100%;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #b6a9c6;
+  border-radius: 8px;
+  color: #261c35;
+  background: var(--color-white);
+  font: inherit;
+  font-size: 16px;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.membership-renewal-fields input::placeholder {
+  color: #73647f;
+  opacity: 1;
+}
+
+.membership-renewal-fields input:hover {
+  border-color: #73647f;
+}
+
+.membership-renewal-fields input:focus-visible {
+  border-color: var(--color-membership-purple);
+  outline: 2px solid var(--color-membership-purple);
+  outline-offset: 2px;
+}
+
+.membership-renewal-fields input:user-invalid {
+  border-color: #ba2341;
+  background: #fff7f8;
+}
+
+.membership-renewal-fields input:disabled {
+  color: #73647f;
+  background: #f3edfc;
+}
+
+.membership-renewal-action {
+  margin-top: 14px;
+}
+
+.membership-renewal-action button {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--color-white);
+  background: var(--color-membership-purple);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.membership-renewal-action button:hover:not(:disabled) {
+  background: #5a00c9;
+}
+
+.membership-renewal-action button:focus-visible {
+  outline: 2px solid #5916ac;
+  outline-offset: 3px;
+}
+
+.membership-renewal-action button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.membership-renewal-action button:disabled {
+  background: #59486e;
+  cursor: wait;
+}
+
+.membership-renewal-action p {
+  max-width: 40ch;
+  margin: 8px auto 0;
+  color: #59486e;
+  font-size: clamp(11px, 3.15cqw, 12px);
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+@media (max-width: 350px) {
+  .membership-renewal-content {
+    gap: 8px;
+    padding-inline: 20px;
+  }
+
+  .membership-renewal-intro {
+    padding-inline: 20px;
+  }
+
+  .membership-renewal-plan {
+    padding: 10px 12px;
+  }
+
+  .membership-renewal-price-row strong {
+    font-size: 26px;
+  }
+}
+
+@container membership-checkout (max-width: 380px) {
+  .membership-renewal-benefits {
+    margin-inline: -10px;
+  }
+}
+
+@container membership-checkout (max-height: 700px) {
+  .membership-renewal-nav {
+    padding-top: 4px;
+  }
+
+  .membership-renewal-intro {
+    padding-top: 2px;
+    padding-bottom: 12px;
+  }
+
+  .membership-renewal-intro h1 {
+    font-size: 22px;
+  }
+
+  .membership-renewal-intro h1 span {
+    display: inline-block;
+    font-size: 26px;
+  }
+
+  .membership-renewal-intro p {
+    margin-top: 5px;
+  }
+
+  .membership-renewal-content {
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  .membership-renewal-benefits {
+    gap: 7px;
+  }
+
+  .membership-renewal-plan {
+    padding-block: 10px;
+  }
+
+  .membership-renewal-plan-note {
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+
+  .membership-renewal-fields {
+    gap: 8px 12px;
+  }
+
+  .membership-renewal-fields label>span {
+    font-size: 11px;
+  }
+
+  .membership-renewal-fields input {
+    height: 40px;
+  }
+
+  .membership-renewal-action {
+    margin-top: 10px;
+  }
+
+  .membership-renewal-action button {
+    min-height: 44px;
+  }
+}
+
+@container membership-checkout (max-height: 600px) {
+  .membership-renewal-nav {
+    padding-top: 0;
+  }
+
+  .membership-renewal-intro {
+    padding: 0 14px 4px;
+  }
+
+  .membership-renewal-intro h1 {
+    font-size: 20px;
+  }
+
+  .membership-renewal-intro h1 span {
+    font-size: 23px;
+  }
+
+  .membership-renewal-intro p {
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .membership-renewal-content {
+    gap: 6px;
+    padding-top: 4px;
+    padding-inline: 14px;
+  }
+
+  .membership-renewal-benefits {
+    gap: 3px;
+  }
+
+  .membership-renewal-benefits li {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .membership-renewal-plan {
+    padding-block: 8px;
+  }
+
+  .membership-renewal-price-row h2 {
+    font-size: 11px;
+  }
+
+  .membership-renewal-price-row h2 br {
+    display: none;
+  }
+
+  .membership-renewal-price-row strong {
+    font-size: 23px;
+  }
+
+  .membership-renewal-form legend {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  .membership-renewal-fields {
+    row-gap: 6px;
+  }
+
+  .membership-renewal-fields label {
+    gap: 3px;
+  }
+
+  .membership-renewal-fields input {
+    height: 34px;
+  }
+
+  .membership-renewal-action p {
+    margin-top: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .membership-renewal *,
+  .membership-renewal *::before,
+  .membership-renewal *::after {
+    transition: none !important;
+  }
+}

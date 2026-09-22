@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#8000ff" />
+    <meta name="description" content="NativoPass — Inicio Baseline Original Figma" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <!-- Pure Modular Stylesheets -->
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/globals.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+
+    <title>NativoPass — Inicio (Original Figma Baseline)</title>
+
+    <style>
+      body {
+        background: #0d0c12;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .standalone-wrapper {
+        width: 100%;
+        max-width: 480px;
+        min-height: 100vh;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="standalone-wrapper">
+      <div class="app-shell app-shell--original">
+        <div class="app-content">
+          
+          <!-- Hero Original -->
+          <section class="hero hero--lifestyle hero--original" aria-roledescription="carousel" aria-label="Beneficios NativoPass">
+            <button class="hero-media" type="button" aria-label="Ver siguiente promoción">
+              <img class="hero-slide hero-slide--active" src="../assets/images/nativo-pass-hero-slide1.png" alt="Mujer disfrutando sus beneficios NativoPass desde el celular" />
+              <img class="hero-slide" src="../assets/images/nativo-pass-hero-slide2.png" alt="" aria-hidden="true" />
+              <div class="hero-brand">
+                <img src="../assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+              </div>
+              <h1 class="hero-title" aria-live="polite">TU ESTILO DE VIDA, <strong> PREMIADO.</strong></h1>
+              <span class="hero-progress" aria-hidden="true"><span></span></span>
+            </button>
+
+            <div class="location-picker">
+              <button class="location-trigger" type="button" aria-expanded="false" aria-controls="location-menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.07 7-13A7 7 0 0 0 5 9c0 6.93 7 13 7 13Z" /><circle cx="12" cy="9" r="2.35" /></svg>
+                <span>Ubicación</span>
+                <i aria-hidden="true"></i>
+              </button>
+              <div class="location-menu" id="location-menu">
+                <button type="button"><span>Alajuela</span><i aria-hidden="true"></i></button>
+                <button type="button"><span>Puntarenas</span><i aria-hidden="true"></i></button>
+                <button type="button"><span>San José</span><i aria-hidden="true"></i></button>
+                <button type="button"><span>Limón</span><i aria-hidden="true"></i></button>
+                <button type="button"><span>Liberia</span><i aria-hidden="true"></i></button>
+                <button type="button"><span>Cartago</span><i aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Category Grid (6 original categories) -->
+          <section class="category-section" aria-label="Categorías de beneficios">
+            <div class="category-grid">
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #ffe600 5%, #ff7300 100%); --category-index: 0" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/gastronomia-icon.svg" alt="" /></span>
+                <span class="category-label">GASTRONOMÍA</span>
+              </button>
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #00d4ff 5%, #0045b2 100%); --category-index: 1" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/bienestar-icon.svg" alt="" /></span>
+                <span class="category-label">BIENESTAR</span>
+              </button>
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #cfd621 5%, #008845 100%); --category-index: 2" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/turismo-icon.svg" alt="" /></span>
+                <span class="category-label">TURISMO</span>
+              </button>
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #ff5474 5%, #c00044 100%); --category-index: 3" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/convenienciai-icon.svg" alt="" /></span>
+                <span class="category-label">CONVENIENCIA</span>
+              </button>
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #892785 5%, #3000a2 100%); --category-index: 4" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/hogar-icon.svg" alt="" /></span>
+                <span class="category-label">HOGAR</span>
+              </button>
+              <button class="category-card" style="--category-gradient: linear-gradient(145deg, #ff85d2 5%, #d6008d 100%); --category-index: 5" type="button" aria-pressed="false">
+                <span class="category-icon"><img src="../assets/icons/category-section/estetica-icon.svg" alt="" /></span>
+                <span class="category-label">ESTÉTICA</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Snake Rewards Original -->
+          <section class="snake-section snake-section--original" aria-labelledby="snake-title-original">
+            <div class="snake-card--original">
+              <video class="snake-video--original" src="../assets/video/snake-animation.mp4" autoplay muted loop playsinline aria-label="Animación del juego Snake de Nativo Rewards"></video>
+              <div class="snake-shade--original" aria-hidden="true"></div>
+              <header class="rewards-banner--original">
+                <img src="../assets/icons/snake-game-section/nativo-reward-icon.svg" alt="" />
+                <p><span>NATIVO</span> REWARDS</p>
+              </header>
+              <div class="snake-copy--original">
+                <h2 id="snake-title-original">JUGÁ SNAKE Y GANÁ</h2>
+                <p>PREMIOS SOLO<br />PARA MIEMBROS</p>
+              </div>
+              <button class="snake-button--original" type="button">INICIAR<br />JUEGO</button>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-navigation" aria-label="Navegación principal">
+          <div class="bottom-nav-slot">
+            <button class="is-active" type="button" aria-label="Inicio" aria-current="page">
+              <img src="../assets/icons/nav-bar/home.svg" alt="" />
+            </button>
+          </div>
+          <div class="bottom-nav-slot">
+            <span class="nav-divider" aria-hidden="true"></span>
+            <button type="button" aria-label="Escanear QR">
+              <img src="../assets/icons/nav-bar/qr-codes.svg" alt="" />
+            </button>
+          </div>
+          <div class="bottom-nav-slot">
+            <span class="nav-divider" aria-hidden="true"></span>
+            <button type="button" aria-label="Menú">
+              <img src="../assets/icons/nav-bar/menu.svg" alt="" />
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Vanilla Script -->
+    <script src="../js/app.js"></script>
+  </body>
+</html>

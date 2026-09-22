@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#8000ff" />
+    <meta name="description" content="NativoPass — Prototipo interactivo en Vanilla HTML, CSS y JS." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+    <!-- Pure Modular Stylesheets -->
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/iterations.css" />
+    <link rel="stylesheet" href="css/membership-payment-redesign.css" />
+    <link rel="stylesheet" href="css/membership-payment.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <title>NativoPass — Workbench de Prototipo (Vanilla)</title>
+
+    <style>
+      /* Top handoff navigation bar */
+      .handoff-topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(14, 13, 20, 0.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-ui);
+      }
+      .handoff-topbar-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+      .handoff-topbar-title img {
+        height: 22px;
+      }
+      .handoff-topbar-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .handoff-nav-link {
+        color: #b5b2c2;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .handoff-nav-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .handoff-nav-link--accent {
+        background: #7101f7;
+        color: #fff;
+      }
+      .handoff-nav-link--accent:hover {
+        background: #891cfd;
+        color: #fff;
+      }
+      @media (max-width: 768px) {
+        .handoff-topbar {
+          display: none;
+        }
+      }
+      .prototype-stage {
+        padding-top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Handoff Toolbar -->
+    <header class="handoff-topbar">
+      <div class="handoff-topbar-title">
+        <img src="assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+        <span>Handoff Package</span>
+      </div>
+      <nav class="handoff-topbar-links">
+        <a class="handoff-nav-link" href="pages/home-redesign.html" target="_blank">Página: Rediseño ↗</a>
+        <a class="handoff-nav-link" href="pages/home-original.html" target="_blank">Página: Figma Original ↗</a>
+        <a class="handoff-nav-link" href="pages/membership-payment.html" target="_blank">Página: Pago ↗</a>
+        <a class="handoff-nav-link handoff-nav-link--accent" href="pages/assets-download.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar Assets (.zip)
+        </a>
+      </nav>
+    </header>
+
+    <main class="prototype-stage">
+      <div class="prototype-workbench">
+        <!-- Device Frame Mockup -->
+        <section class="device-frame" aria-label="Vista previa móvil de NativoPass">
+          <div class="device-speaker" aria-hidden="true"></div>
+          <div class="device-screen">
+
+            <!-- SCREEN 1: HOME -->
+            <div id="view-home" class="app-shell app-shell--iteration-1">
+              <div class="app-content">
+                
+                <!-- Hero: Original Figma Baseline -->
+                <section class="hero hero--lifestyle hero--original" style="display: none;" aria-roledescription="carousel" aria-label="Beneficios NativoPass">
+                  <button class="hero-media" type="button" aria-label="Ver siguiente promoción">
+                    <img class="hero-slide hero-slide--active" src="assets/images/nativo-pass-hero-slide1.png" alt="Mujer disfrutando sus beneficios NativoPass desde el celular" />
+                    <img class="hero-slide" src="assets/images/nativo-pass-hero-slide2.png" alt="" aria-hidden="true" />
+                    <div class="hero-brand">
+                      <img src="assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+                    </div>
+                    <h1 class="hero-title" aria-live="polite">TU ESTILO DE VIDA, <strong> PREMIADO.</strong></h1>
+                    <span class="hero-progress" aria-hidden="true"><span></span></span>
+                  </button>
+
+                  <div class="location-picker">
+                    <button class="location-trigger" type="button" aria-expanded="false" aria-controls="location-menu">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.07 7-13A7 7 0 0 0 5 9c0 6.93 7 13 7 13Z" /><circle cx="12" cy="9" r="2.35" /></svg>
+                      <span>Ubicación</span>
+                      <i aria-hidden="true"></i>
+                    </button>
+                    <div class="location-menu" id="location-menu">
+                      <button type="button"><span>Alajuela</span><i aria-hidden="true"></i></button>
+                      <button type="button"><span>Puntarenas</span><i aria-hidden="true"></i></button>
+                      <button type="button"><span>San José</span><i aria-hidden="true"></i></button>
+                      <button type="button"><span>Limón</span><i aria-hidden="true"></i></button>
+                      <button type="button"><span>Liberia</span><i aria-hidden="true"></i></button>
+                      <button type="button"><span>Cartago</span><i aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Hero: Redesign (Iterations 1-4) -->
+                <section class="hero hero--lifestyle-new hero--iteration-one" aria-label="Beneficios NativoPass">
+                  <div class="hero-media">
+                    <img class="hero-slide hero-slide--active" src="assets/images/nativo-pass-hero-slide1-new.png" alt="Miembro de NativoPass celebrando un beneficio desde su celular" />
+                    <div class="hero-brand hero-brand--plain">
+                      <img src="assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+                    </div>
+                    <h1 class="hero-title" aria-live="polite">TU ESTILO DE VIDA, <strong> PREMIADO.</strong></h1>
+                    
+                    <div class="membership-cta-region">
+                      <!-- CTA: Guest State -->
+                      <section class="membership-cta membership-cta--guest" aria-label="Invitación a unirse a NativoPass" aria-live="polite">
+                        <img class="membership-cta-backdrop" src="assets/images/nativo-pass-hero-slide1-new.png" alt="" aria-hidden="true" />
+                        <strong class="membership-guest-title">DESBLOQUEÁ MIEMBROS+</strong>
+                        <span class="membership-guest-copy">Jugá, sumá puntos y ganá premios cada semana.</span>
+                        <button class="membership-cta-join-btn" type="button">UNIRME</button>
+                      </section>
+
+                      <!-- CTA: Member State -->
+                      <section class="membership-cta membership-cta--member" style="display: none;" aria-label="Resumen de membresía" aria-live="polite">
+                        <img class="membership-cta-backdrop" src="assets/images/nativo-pass-hero-slide1-new.png" alt="" aria-hidden="true" />
+                        <strong class="membership-member-title">SOS MIEMBRO+</strong>
+                        <span class="membership-points"><b>1,420</b> PTS</span>
+                        <div class="membership-days-row">
+                          <p class="membership-days">Días restantes<br />para participar:</p>
+                          <span class="membership-day-count" aria-label="2 días restantes">2</span>
+                        </div>
+                        <button type="button">VER RANKING</button>
+                      </section>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Category Grid -->
+                <section class="category-section category-section--scroll-reveal category-section--visible" aria-label="Categorías de beneficios">
+                  <div class="category-grid">
+                    <button class="category-card" data-category-id="gastronomia" style="--category-gradient: linear-gradient(145deg, #ffe600 5%, #ff7300 100%); --category-index: 0" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/gastronomia-icon.svg" alt="" /></span>
+                      <span class="category-label">GASTRONOMÍA</span>
+                    </button>
+                    <button class="category-card" data-category-id="bienestar" style="--category-gradient: linear-gradient(145deg, #00d4ff 5%, #0045b2 100%); --category-index: 1" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/bienestar-icon.svg" alt="" /></span>
+                      <span class="category-label">BIENESTAR</span>
+                    </button>
+                    <button class="category-card" data-category-id="turismo" style="--category-gradient: linear-gradient(145deg, #cfd621 5%, #008845 100%); --category-index: 2" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/turismo-icon.svg" alt="" /></span>
+                      <span class="category-label">TURISMO</span>
+                    </button>
+                    <button class="category-card" data-category-id="conveniencia" style="--category-gradient: linear-gradient(145deg, #ff5474 5%, #c00044 100%); --category-index: 3" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/convenienciai-icon.svg" alt="" /></span>
+                      <span class="category-label">CONVENIENCIA</span>
+                    </button>
+                    <button class="category-card" data-category-id="hogar" style="--category-gradient: linear-gradient(145deg, #892785 5%, #3000a2 100%); --category-index: 4" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/hogar-icon.svg" alt="" /></span>
+                      <span class="category-label">HOGAR</span>
+                    </button>
+                    <button class="category-card" data-category-id="estetica" style="--category-gradient: linear-gradient(145deg, #ff85d2 5%, #d6008d 100%); --category-index: 5" type="button" aria-pressed="false">
+                      <span class="category-icon"><img src="assets/icons/category-section/estetica-icon.svg" alt="" /></span>
+                      <span class="category-label">ESTÉTICA</span>
+                    </button>
+                  </div>
+                </section>
+
+                <!-- Snake Rewards: Original Baseline -->
+                <section class="snake-section snake-section--original" style="display: none;" aria-labelledby="snake-title-original">
+                  <div class="snake-card--original">
+                    <video class="snake-video--original" src="assets/video/snake-animation.mp4" autoplay muted loop playsinline aria-label="Animación del juego Snake de Nativo Rewards"></video>
+                    <div class="snake-shade--original" aria-hidden="true"></div>
+                    <header class="rewards-banner--original">
+                      <img src="assets/icons/snake-game-section/nativo-reward-icon.svg" alt="" />
+                      <p><span>NATIVO</span> REWARDS</p>
+                    </header>
+                    <div class="snake-copy--original">
+                      <h2 id="snake-title-original">JUGÁ SNAKE Y GANÁ</h2>
+                      <p>PREMIOS SOLO<br />PARA MIEMBROS</p>
+                    </div>
+                    <button class="snake-button--original" type="button">INICIAR<br />JUEGO</button>
+                  </div>
+                </section>
+
+                <!-- Snake Rewards: Redesign (NEÓN Snake) -->
+                <section class="snake-section snake-section--iteration-one" aria-labelledby="snake-title-iteration-one">
+                  <div class="snake-card--iteration-one snake-card--scroll-reveal snake-card--visible">
+                    <video class="snake-video--iteration-one" src="assets/video/snake-promo-seedance-cartoon.mp4" autoplay muted loop playsinline preload="auto" aria-label="Animación neón del juego Snake de Nativo Rewards"></video>
+                    <div class="snake-shade--iteration-one" aria-hidden="true"></div>
+                    <div class="snake-reveal-scan--iteration-one" aria-hidden="true"></div>
+                    <header class="rewards-banner--iteration-one">
+                      <img class="rewards-token--iteration-one" src="assets/images/snake-game/reward-token.png" alt="" />
+                      <p><span><strong>NATIVO</strong><br /> REWARDS</span></p>
+                    </header>
+                    <h2 class="sr-only" id="snake-title-iteration-one">Nativo Rewards</h2>
+                    <button class="snake-button--iteration-one" type="button"><span>JUGÁ AHORA</span></button>
+                  </div>
+                </section>
+
+              </div>
+
+              <!-- Bottom Navigation -->
+              <nav class="bottom-navigation" aria-label="Navegación principal">
+                <div class="bottom-nav-slot">
+                  <button class="is-active" type="button" aria-label="Inicio" aria-current="page">
+                    <img src="assets/icons/nav-bar/home.svg" alt="" />
+                  </button>
+                </div>
+                <div class="bottom-nav-slot">
+                  <span class="nav-divider" aria-hidden="true"></span>
+                  <button type="button" aria-label="Escanear QR">
+                    <img src="assets/icons/nav-bar/qr-codes.svg" alt="" />
+                  </button>
+                </div>
+                <div class="bottom-nav-slot">
+                  <span class="nav-divider" aria-hidden="true"></span>
+                  <button type="button" aria-label="Menú">
+                    <img src="assets/icons/nav-bar/menu.svg" alt="" />
+                  </button>
+                </div>
+              </nav>
+            </div>
+
+            <!-- SCREEN 2: MEMBERSHIP PAYMENT REDESIGN -->
+            <div id="view-payment" style="display: none; height: 100%;">
+              <section class="membership-renewal" aria-labelledby="membership-renewal-title">
+                <header class="membership-renewal-hero">
+                  <div class="membership-renewal-nav">
+                    <button class="payment-back-btn" type="button" aria-label="Volver">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7M7 12h13" /></svg>
+                    </button>
+                    <img src="assets/logos/Nativopass-logo-7101F7.svg" alt="NativoPass" />
+                    <span aria-hidden="true"></span>
+                  </div>
+                  <div class="membership-renewal-intro">
+                    <h1 id="membership-renewal-title">Volvete <span aria-label="Miembro más">Miembro</span></h1>
+                    <p>Y participá en nuestros torneos</p>
+                  </div>
+                </header>
+
+                <div class="membership-renewal-content">
+                  <ul class="membership-renewal-benefits" aria-label="Beneficios de Miembro+">
+                    <li>
+                      <span class="membership-renewal-check" aria-hidden="true">
+                        <svg viewBox="0 0 20 20"><path d="m4.5 10 3.25 3.25L15.5 5.5" /></svg>
+                      </span>
+                      <span>Ganá premios de <strong>hasta más de ₡1.000.000.</strong></span>
+                    </li>
+                    <li>
+                      <span class="membership-renewal-check" aria-hidden="true">
+                        <svg viewBox="0 0 20 20"><path d="m4.5 10 3.25 3.25L15.5 5.5" /></svg>
+                      </span>
+                      <span>Obtené <strong>regalías exclusivas</strong> en nuestros comercios afiliados.</span>
+                    </li>
+                  </ul>
+
+                  <section class="membership-renewal-plan" aria-labelledby="membership-renewal-plan-title">
+                    <div class="membership-renewal-price-row">
+                      <h2 id="membership-renewal-plan-title">Membresía mensual</h2>
+                      <p><strong>₡2.500</strong><span> / mes</span></p>
+                    </div>
+                    <p class="membership-renewal-plan-note">Se cobra al finalizar tu prueba de 14 días.</p>
+                  </section>
+
+                  <form class="membership-renewal-form">
+                    <fieldset>
+                      <legend>Datos de la tarjeta</legend>
+                      <div class="membership-renewal-fields">
+                        <label class="membership-renewal-field--wide">
+                          <span>Nombre completo</span>
+                          <input name="card-name" type="text" autocomplete="cc-name" placeholder="Como aparece en la tarjeta" minlength="3" required />
+                        </label>
+                        <label class="membership-renewal-field--wide">
+                          <span>Número de tarjeta</span>
+                          <input name="card-number" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000" pattern="[0-9 ]{13,23}" maxlength="23" required />
+                        </label>
+                        <label>
+                          <span>Vencimiento</span>
+                          <input name="card-expiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM / AA" pattern="(0[1-9]|1[0-2]) ?/ ?[0-9]{2}" maxlength="7" title="Ingresá el vencimiento en formato MM / AA, con un mes entre 01 y 12." required />
+                        </label>
+                        <label>
+                          <span>CVV</span>
+                          <input name="card-cvv" type="password" inputmode="numeric" autocomplete="cc-csc" placeholder="123" pattern="[0-9]{3,4}" maxlength="4" required />
+                        </label>
+                      </div>
+                    </fieldset>
+
+                    <div class="membership-renewal-action">
+                      <button type="submit" aria-describedby="membership-renewal-disclaimer" aria-live="polite">
+                        INICIÁ PRUEBA GRATIS
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>
+                      </button>
+                      <p id="membership-renewal-disclaimer">Prueba gratis de <strong>14 días</strong>, sin compromiso.<br /> Cancelá cuando quieras.</p>
+                    </div>
+                  </form>
+                </div>
+              </section>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Sidebar Workbench Controls -->
+        <aside class="iteration-controls" aria-label="Controles del prototipo">
+          <div class="iteration-control-group">
+            <p>Iteraciones</p>
+            <div class="iteration-tabs" role="tablist" aria-label="Seleccionar iteración">
+              <button data-iteration="original" type="button" role="tab">Original</button>
+              <button class="is-active" data-iteration="iteration-1" type="button" role="tab">Iteration 1</button>
+              <button data-iteration="iteration-2" type="button" role="tab">Iteration 2</button>
+              <button data-iteration="iteration-3" type="button" role="tab">Iteration 3</button>
+              <button data-iteration="iteration-4" type="button" role="tab">Iteration 4</button>
+            </div>
+          </div>
+
+          <div class="iteration-control-group iteration-state-controls">
+            <p>Estado del CTA</p>
+            <div class="iteration-state-tabs" role="group" aria-label="Estado de membresía">
+              <button class="is-active" data-state="guest" type="button" aria-pressed="true">Sin sesión</button>
+              <button data-state="member" type="button" aria-pressed="false">Miembro</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Vanilla Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/prototype-shell.js"></script>
+  </body>
+</html>
