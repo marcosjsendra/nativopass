@@ -6,6 +6,7 @@ import BottomNavigation from '../../components/BottomNavigation/BottomNavigation
 export default function IterationOneHome({
   membershipState,
   onJoin,
+  onMenuClick,
   snakeVideoSrc = '/assets/video/snake-promo-seedance-cartoon.mp4',
 }) {
   return (
@@ -19,7 +20,7 @@ export default function IterationOneHome({
         <CategoryGrid iteration="iteration-1" />
         <IterationOneSnakeRewards videoSrc={snakeVideoSrc} />
       </div>
-      <BottomNavigation />
+      <BottomNavigation onMenuClick={onMenuClick} />
     </div>
   )
 }

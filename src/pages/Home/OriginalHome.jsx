@@ -3,7 +3,7 @@ import CategoryGrid from '../../components/CategoryGrid/CategoryGrid.jsx'
 import OriginalSnakeRewards from '../../components/SnakeRewards/OriginalSnakeRewards.jsx'
 import BottomNavigation from '../../components/BottomNavigation/BottomNavigation.jsx'
 
-export default function OriginalHome() {
+export default function OriginalHome({ onMenuClick }) {
   return (
     <div className="app-shell app-shell--original">
       <div className="app-content">
@@ -11,7 +11,7 @@ export default function OriginalHome() {
         <CategoryGrid iteration="original" />
         <OriginalSnakeRewards />
       </div>
-      <BottomNavigation />
+      <BottomNavigation onMenuClick={onMenuClick} />
     </div>
   )
 }

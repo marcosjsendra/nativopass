@@ -1,0 +1,411 @@
+/* ── Subscription screen ─────────────────────────────────────── */
+
+.subscription-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  color: #261c35;
+  background: var(--color-white);
+  scrollbar-width: none;
+}
+
+.subscription-screen::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Back button ─────────────────────────────────────────────── */
+
+.subscription-back-btn {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #261c35;
+  background: transparent;
+  cursor: pointer;
+  margin: 16px 0 0 16px;
+  transition: background-color 180ms ease;
+}
+
+.subscription-back-btn:hover {
+  background: rgba(113, 1, 247, 0.1);
+}
+
+.subscription-back-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Hero area ───────────────────────────────────────────────── */
+
+.subscription-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 24px 0;
+  gap: 6px;
+}
+
+.subscription-hero-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f0eef8;
+  margin-bottom: 4px;
+}
+
+.subscription-hero-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--color-membership-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.subscription-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-membership-purple);
+}
+
+.subscription-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #6b6b6b;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ── Status badge ────────────────────────────────────────────── */
+
+.subscription-status {
+  display: flex;
+  justify-content: center;
+  padding: 16px 24px 0;
+}
+
+.subscription-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1.5px solid #d9cbe9;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #261c35;
+}
+
+.subscription-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-membership-purple);
+  flex-shrink: 0;
+}
+
+/* ── Payment card ────────────────────────────────────────────── */
+
+.subscription-card {
+  margin: 20px 20px 0;
+  padding: 0;
+  background: #f3f0f8;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.subscription-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.subscription-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #261c35;
+}
+
+.subscription-card-header-left svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--color-membership-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.subscription-card-status {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-membership-purple);
+}
+
+/* Rows */
+.subscription-rows {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e2daf0;
+}
+
+.subscription-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e2daf0;
+  font-size: 14px;
+}
+
+.subscription-row:last-child {
+  border-bottom: none;
+}
+
+.subscription-row-label {
+  color: #6b6b6b;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.subscription-row-value {
+  font-weight: 700;
+  color: #0a0a0a;
+  text-align: right;
+}
+
+.subscription-row-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: #e2daf0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #59486e;
+}
+
+/* ── Bordered bottom section ─────────────────────────────────── */
+
+.subscription-bottom-card {
+  margin: 16px 20px 0;
+  border: 1px solid #e2daf0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Info notice ─────────────────────────────────────────────── */
+
+.subscription-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px 18px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #59486e;
+  border-bottom: 1px solid #e2daf0;
+}
+
+.subscription-notice svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  fill: none;
+  stroke: var(--color-membership-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Action area ─────────────────────────────────────────────── */
+
+.subscription-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px max(24px, env(safe-area-inset-bottom));
+}
+
+/* Text-style cancel link — inside the bordered card */
+.subscription-cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-membership-purple);
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.subscription-cancel-btn:hover {
+  background: rgba(113, 1, 247, 0.05);
+}
+
+.subscription-cancel-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Delete account checkbox */
+.subscription-delete-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #6b6b6b;
+  cursor: pointer;
+}
+
+.subscription-delete-label input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--color-membership-purple);
+}
+
+/* ── Confirm modal ────────────────────────────────────────────── */
+
+.subscription-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(38, 28, 53, 0.55);
+  backdrop-filter: blur(2px);
+  animation: modal-fade-in 180ms ease both;
+}
+
+.subscription-modal {
+  width: 100%;
+  padding: 28px 24px max(28px, env(safe-area-inset-bottom));
+  border-radius: 20px 20px 0 0;
+  background: var(--color-white);
+  animation: modal-slide-up 220ms var(--ease-ui) both;
+}
+
+.subscription-modal h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-membership-purple);
+  text-align: center;
+}
+
+.subscription-modal p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #59486e;
+  text-align: center;
+}
+
+.subscription-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.subscription-modal-actions button {
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.subscription-modal-actions button:active {
+  transform: translateY(1px);
+}
+
+.subscription-modal-keep {
+  border: 2px solid #d9cbe9;
+  color: #261c35;
+  background: var(--color-white);
+}
+
+.subscription-modal-keep:hover {
+  background: #f3edfc;
+}
+
+.subscription-modal-confirm {
+  border: 0;
+  color: var(--color-white);
+  background: #ba2341;
+}
+
+.subscription-modal-confirm:hover {
+  background: #991e38;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subscription-screen *,
+  .subscription-screen *::before,
+  .subscription-screen *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

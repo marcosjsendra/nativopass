@@ -1,0 +1,320 @@
+/* ── Profile screen (redesign) ───────────────────────────────── */
+
+.profile-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  color: #261c35;
+  background: var(--color-white);
+  scrollbar-width: none;
+}
+
+.profile-screen::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Back button ─────────────────────────────────────────────── */
+
+.profile-back-btn {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #261c35;
+  background: transparent;
+  cursor: pointer;
+  margin: 16px 0 0 16px;
+  transition: background-color 180ms ease;
+}
+
+.profile-back-btn:hover {
+  background: rgba(113, 1, 247, 0.1);
+}
+
+.profile-back-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Avatar + identity ───────────────────────────────────────── */
+
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 22px 0;
+  gap: 6px;
+}
+
+.profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #d0c8e8;
+  margin-bottom: 6px;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-welcome-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-membership-purple);
+  text-transform: uppercase;
+}
+
+.profile-welcome-name {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0a0a0a;
+}
+
+.profile-user-id {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6b6b;
+  letter-spacing: 0.01em;
+}
+
+/* ── Score card ───────────────────────────────────────────────── */
+
+.profile-score-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 22px 0;
+  padding: 16px 18px;
+  background: #f0eef8;
+  border-radius: 14px;
+}
+
+.profile-score-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  margin-bottom: 4px;
+}
+
+.profile-score-value {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0a0a0a;
+}
+
+.profile-score-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-membership-purple);
+  background: var(--color-white);
+}
+
+.profile-score-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--color-membership-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Form fields ─────────────────────────────────────────────── */
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 22px 0;
+}
+
+.profile-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #261c35;
+}
+
+.profile-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+  border: 1px solid #b6a9c6;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.profile-field:focus-within {
+  border-color: var(--color-membership-purple);
+  outline: 2px solid var(--color-membership-purple);
+  outline-offset: 2px;
+}
+
+.profile-field-icon-left,
+.profile-field-icon-right {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+.profile-field-icon-left svg,
+.profile-field-icon-right svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #73647f;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Eye toggle — no visible button chrome */
+button.profile-field-icon-right {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+button.profile-field-icon-right:hover svg,
+button.profile-field-icon-right:focus-visible svg {
+  stroke: var(--color-membership-purple);
+}
+
+button.profile-field-icon-right:focus-visible {
+  outline: none;
+}
+
+.profile-field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  font: inherit;
+  font-size: 16px;
+  color: #261c35;
+  background: transparent;
+}
+
+.profile-field input::placeholder {
+  color: #73647f;
+  opacity: 1;
+}
+
+/* ── Actions ─────────────────────────────────────────────────── */
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 22px max(20px, env(safe-area-inset-bottom));
+}
+
+.profile-submit-btn {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--color-white);
+  background: var(--color-membership-purple);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.profile-submit-btn:hover {
+  background: #5a00c9;
+}
+
+.profile-submit-btn:focus-visible {
+  outline: 2px solid #5916ac;
+  outline-offset: 3px;
+}
+
+.profile-submit-btn:active {
+  transform: translateY(1px);
+}
+
+.profile-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c0392b;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+
+.profile-logout-btn:hover {
+  opacity: 0.75;
+}
+
+.profile-logout-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .profile-screen *,
+  .profile-screen *::before,
+  .profile-screen *::after {
+    transition: none !important;
+  }
+}

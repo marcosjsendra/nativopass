@@ -6,8 +6,16 @@ const items = [
   { id: 'menu', label: 'Menú', icon: '/assets/icons/nav-bar/menu.svg' },
 ]
 
-export default function BottomNavigation() {
+export default function BottomNavigation({ onMenuClick }) {
   const [active, setActive] = useState('home')
+
+  const handleClick = (id) => {
+    if (id === 'menu') {
+      onMenuClick?.()
+    } else {
+      setActive(id)
+    }
+  }
 
   return (
     <nav className="bottom-navigation" aria-label="Navegación principal">
@@ -19,7 +27,7 @@ export default function BottomNavigation() {
             type="button"
             aria-label={item.label}
             aria-current={active === item.id ? 'page' : undefined}
-            onClick={() => setActive(item.id)}
+            onClick={() => handleClick(item.id)}
           >
             <img src={item.icon} alt="" />
           </button>

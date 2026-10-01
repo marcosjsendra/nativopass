@@ -1,0 +1,113 @@
+/* ── Menu drawer ─────────────────────────────────────────────── */
+
+.menu-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(38, 28, 53, 0.45);
+  backdrop-filter: blur(2px);
+  animation: drawer-fade-in 180ms ease both;
+}
+
+.menu-drawer {
+  width: 100%;
+  padding: 20px 16px max(20px, env(safe-area-inset-bottom));
+  border-radius: 20px 20px 0 0;
+  background: var(--color-white);
+  animation: drawer-slide-up 220ms var(--ease-ui) both;
+}
+
+.menu-drawer-handle {
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin: 0 auto 20px;
+  border-radius: 99px;
+  background: #d9cbe9;
+}
+
+.menu-drawer-title {
+  margin: 0 0 12px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9e8fb0;
+}
+
+.menu-drawer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  color: #261c35;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 180ms ease;
+}
+
+.menu-drawer-item:hover {
+  background: #f3edfc;
+}
+
+.menu-drawer-item:focus-visible {
+  outline: 2px solid var(--color-membership-purple);
+  outline-offset: 2px;
+}
+
+.menu-drawer-item svg {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--color-membership-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.menu-drawer-item span {
+  flex: 1;
+}
+
+.menu-drawer-item-chevron {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #9e8fb0 !important;
+  stroke-width: 2 !important;
+}
+
+@keyframes drawer-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes drawer-slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-drawer-backdrop,
+  .menu-drawer {
+    animation: none !important;
+  }
+}
