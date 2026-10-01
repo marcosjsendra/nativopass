@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../../styles/subscription-screen.css'
+import checkmarkIcon from '../../../assets/icons/subscription/checkmark.svg'
 
 const ROWS = [
   { label: 'Plan',                      value: 'AFILIACIÓN MENSUAL', bold: true },
@@ -30,12 +31,7 @@ export default function SubscriptionScreen({ onBack }) {
       {/* Hero */}
       <div className="subscription-hero">
         <div className="subscription-hero-icon" aria-hidden="true">
-          <img
-            src="/docs/Screens/Subscription/check_circle_24dp_E3E3E3_FILL0_wght300_GRAD0_opsz24.svg"
-            alt=""
-            width="28"
-            height="28"
-          />
+          <img src={checkmarkIcon} alt="" width="28" height="28" />
         </div>
         <h1 id="subscription-title" className="subscription-title">Suscripción</h1>
         <p className="subscription-subtitle">Detalles y estado de tu membresía activa</p>
