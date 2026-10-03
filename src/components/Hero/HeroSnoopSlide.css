@@ -1,0 +1,250 @@
+/* ─────────────────────────────────────────────
+   HeroSnoopSlide — Animated Snoop Dogg Slide
+   Fits inside .hero--iteration-one .hero-media (height: 668px)
+   - NativoPass logo: exact size & position as the blue slide
+   - Snoop Dogg Costa Rica logo: large and prominent
+   - Date + Promo message: large, side-by-side in one div
+   - Snoop cutout: full 100% width, sliding up from bottom
+   ───────────────────────────────────────────── */
+
+.hero-snoop-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: #f0eade;
+  isolation: isolate;
+  transition: opacity 550ms var(--ease-ui, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.hero-snoop-slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Background texture ── */
+.hero-snoop__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── NativoPass brown logo (matches .hero-brand on the blue slide) ── */
+.hero-snoop__brand {
+  position: absolute;
+  inset: 0 0 auto;
+  display: grid;
+  place-items: center;
+  height: 100px;
+  padding: 0 30px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-snoop__brand img {
+  display: block;
+  width: 100%;
+  max-width: 327px;
+  height: auto;
+}
+
+/* ── Snoop Dogg Costa Rica logo (large & prominent) ── */
+.hero-snoop__concert-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 325px;
+  height: auto;
+  top: 150px;
+  opacity: 0;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* beat 1: fades in mid-height */
+.hero-snoop-slide--beat-1 .hero-snoop__concert-logo {
+  opacity: 1;
+  top: 150px;
+}
+
+/* beat 2: shifts up as NativoPass logo appears */
+.hero-snoop-slide--beat-2 .hero-snoop__concert-logo {
+  opacity: 1;
+  top: 105px;
+}
+
+/* beat 3+: moves up to final top position right below NativoPass logo */
+.hero-snoop-slide--beat-3 .hero-snoop__concert-logo,
+.hero-snoop-slide--beat-4 .hero-snoop__concert-logo,
+.hero-snoop-slide--beat-5 .hero-snoop__concert-logo {
+  opacity: 1;
+  top: 78px;
+}
+
+/* ── Details row: Date next to Promo message in one div (+15% larger) ── */
+.hero-snoop__details {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 94%;
+  max-width: 360px;
+  top: 225px;
+  opacity: 0;
+  cursor: pointer;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 180ms ease;
+}
+
+.hero-snoop__details:hover {
+  transform: translateX(-50%) scale(1.02);
+}
+
+.hero-snoop__details:active {
+  transform: translateX(-50%) scale(0.98);
+}
+
+/* beat 3+: row appears cleanly right below concert logo */
+.hero-snoop-slide--beat-3 .hero-snoop__details,
+.hero-snoop-slide--beat-4 .hero-snoop__details,
+.hero-snoop-slide--beat-5 .hero-snoop__details {
+  opacity: 1;
+  top: 194px;
+}
+
+/* Date badge inside row — +15% larger */
+.hero-snoop__date {
+  height: 94px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Promo message inside row — +15% larger */
+.hero-snoop__promo {
+  height: 85px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Snoop cutout — full 100% width, moved back upward to bottom: -60px ── */
+.hero-snoop__face {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translate(-50%, 100%);   /* parked off-screen bottom */
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* beat 5: slides up smoothly from bottom into place */
+.hero-snoop-slide--beat-5 .hero-snoop__face {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ── Guest CTA Card on top of Snoop Dogg cutout — Snoop Gold & Espresso aesthetic ── */
+.hero-snoop__cta-region {
+  position: absolute;
+  z-index: 4;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Appears on beat 5 with Snoop */
+.hero-snoop-slide--beat-5 .hero-snoop__cta-region {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-snoop__cta {
+  --membership-cta-tint: rgba(30, 20, 12, 0.78) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 84px !important;
+  padding: 16px 20px !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(235, 200, 130, 0.25) !important;
+}
+
+.hero-snoop__cta::before {
+  background: var(--membership-cta-tint) !important;
+}
+
+.hero-snoop__cta::after {
+  border: 1px solid rgba(218, 180, 100, 0.45) !important;
+}
+
+.hero-snoop__cta .membership-cta-backdrop {
+  display: none !important;
+}
+
+.hero-snoop__cta-title {
+  white-space: normal !important;
+  line-height: 1.15 !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+  margin: 0 !important;
+  color: #ffffff !important;
+}
+
+.hero-snoop__cta button {
+  color: #5c3c18 !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.hero-snoop__cta button:hover {
+  background: #fdf8ee !important;
+}
+
+/* ── Reduced motion: immediate final state ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-snoop__face,
+  .hero-snoop__brand,
+  .hero-snoop__concert-logo,
+  .hero-snoop__details,
+  .hero-snoop__cta-region {
+    transition: none !important;
+    transform: translate(-50%, 0) !important;
+    opacity: 1 !important;
+  }
+
+  .hero-snoop__cta-region {
+    transform: none !important;
+  }
+}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
 
-export default function IterationOneSnakeRewards({ videoSrc }) {
+export default function IterationOneSnakeRewards({ videoSrc, onPlayNow }) {
   const prefersReducedMotion = usePrefersReducedMotion()
   const [started, setStarted] = useState(false)
   const [hasEnteredView, setHasEnteredView] = useState(false)
@@ -77,7 +77,7 @@ export default function IterationOneSnakeRewards({ videoSrc }) {
         <button
           className="snake-button--iteration-one"
           type="button"
-          onClick={() => setStarted(true)}
+          onClick={() => { setStarted(true); onPlayNow?.() }}
         >
           <span>{started ? '¡A JUGAR!' : 'JUGÁ AHORA'}</span>
         </button>

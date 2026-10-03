@@ -12,7 +12,7 @@ const layouts = {
   'iteration-4': IterationFourHome,
 }
 
-export default function Home({ iteration, membershipState, onJoin, onMenuClick }) {
+export default function Home({ iteration, membershipState, onJoin, onMenuClick, onPlayNow }) {
   const ActiveLayout = layouts[iteration] ?? OriginalHome
 
   return (
@@ -20,6 +20,7 @@ export default function Home({ iteration, membershipState, onJoin, onMenuClick }
       membershipState={membershipState}
       onJoin={onJoin}
       onMenuClick={onMenuClick}
+      onPlayNow={onPlayNow}
     />
   )
 }

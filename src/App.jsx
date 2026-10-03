@@ -7,6 +7,7 @@ import MembershipPayment from './pages/MembershipPayment/MembershipPayment.jsx'
 import MembershipPaymentRedesign from './pages/MembershipPayment/MembershipPaymentRedesign.jsx'
 import ProfileScreen from './pages/Profile/ProfileScreen.jsx'
 import SubscriptionScreen from './pages/Subscription/SubscriptionScreen.jsx'
+import SnoopBannerScreen from './pages/SnoopBanner/SnoopBannerScreen.jsx'
 
 const iterations = ['original', 'iteration-1', 'iteration-2', 'iteration-3', 'iteration-4']
 
@@ -70,12 +71,16 @@ export default function App() {
     if (activeScreen === 'subscription') {
       return <SubscriptionScreen onBack={() => setActiveScreen('home')} />
     }
+    if (activeScreen === 'snoop-banner') {
+      return <SnoopBannerScreen onBack={() => setActiveScreen('home')} />
+    }
     return (
       <Home
         iteration={iteration}
         membershipState={membershipState}
         onJoin={() => setActiveScreen('membership-payment')}
         onMenuClick={() => setMenuOpen(true)}
+        onPlayNow={() => setActiveScreen('snoop-banner')}
       />
     )
   }

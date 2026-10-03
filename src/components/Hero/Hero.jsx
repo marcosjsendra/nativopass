@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
 import MembershipCta from '../MembershipCta/MembershipCta.jsx'
+import HeroSnoopSlide from './HeroSnoopSlide.jsx'
+
+const snoopSlideDefinition = {
+  id: 'snoop-dogg',
+  image: '/assets/images/conciertos/assets-ready/2x/snoopdogg-background@2x.png',
+  alt: 'Sorteo 2 entradas para Snoop Dogg en Costa Rica',
+  title: null,
+}
 
 const originalSlides = [
   {
@@ -25,6 +33,7 @@ const originalSlides = [
       </>
     ),
   },
+  snoopSlideDefinition,
 ]
 
 const iterationOneSlides = [
@@ -39,6 +48,7 @@ const iterationOneSlides = [
       </>
     ),
   },
+  snoopSlideDefinition,
 ]
 
 const locations = ['Alajuela', 'Puntarenas', 'San José', 'Limón', 'Liberia', 'Cartago']
@@ -67,7 +77,7 @@ export default function Hero({ iteration, membershipState, onJoin }) {
 
     intervalRef.current = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length)
-    }, 6500)
+    }, 7500)
 
     return () => window.clearInterval(intervalRef.current)
   }, [prefersReducedMotion, slides.length])
@@ -81,46 +91,63 @@ export default function Hero({ iteration, membershipState, onJoin }) {
     setLocationOpen(false)
   }
 
+  const isSnoopSlide = slides[activeSlideIndex]?.id === 'snoop-dogg'
+
   const heroMediaContent = (
     <>
-      {slides.map((slide, index) => (
-        <img
-          className={`hero-slide ${index === activeSlideIndex ? 'hero-slide--active' : ''}`}
-          src={slide.image}
-          alt={index === activeSlideIndex ? slide.alt : ''}
-          aria-hidden={index !== activeSlideIndex}
-          key={slide.id}
-        />
-      ))}
+      {slides.map((slide, index) => {
+        const isActive = index === activeSlideIndex
+        if (slide.id === 'snoop-dogg') {
+          return (
+            <HeroSnoopSlide
+              key={slide.id}
+              isActive={isActive}
+              onJoin={onJoin}
+              onAdvance={advanceSlide}
+            />
+          )
+        }
+        return (
+          <img
+            className={`hero-slide ${isActive ? 'hero-slide--active' : ''}`}
+            src={slide.image}
+            alt={isActive ? slide.alt : ''}
+            aria-hidden={!isActive}
+            key={slide.id}
+          />
+        )
+      })}
 
-      <div className={`hero-brand ${isRedesignIteration ? 'hero-brand--plain' : ''}`}>
-        <img src="/assets/logos/Nativopass-logo.svg" alt="NativoPass" />
-      </div>
+      {!isSnoopSlide && (
+        <>
+          <div className={`hero-brand ${isRedesignIteration ? 'hero-brand--plain' : ''}`}>
+            <img src="/assets/logos/Nativopass-logo.svg" alt="NativoPass" />
+          </div>
 
-      <h1 className="hero-title" aria-live="polite">{slides[activeSlideIndex].title}</h1>
-
-      {slides.length > 1 && (
-        <span className="hero-progress" aria-hidden="true">
-          <span key={activeSlideIndex} />
-        </span>
+          {slides[activeSlideIndex]?.title && (
+            <h1 className="hero-title" aria-live="polite">{slides[activeSlideIndex].title}</h1>
+          )}
+        </>
       )}
     </>
   )
 
   return (
     <section
-      className={`hero hero--${slides[activeSlideIndex].id} ${isRedesignIteration ? 'hero--iteration-one' : 'hero--original'}`}
+      className={`hero hero--${slides[activeSlideIndex]?.id} ${isRedesignIteration ? 'hero--iteration-one' : 'hero--original'}`}
       aria-roledescription={isRedesignIteration ? undefined : 'carousel'}
       aria-label="Beneficios NativoPass"
     >
       {isRedesignIteration ? (
         <div className="hero-media">
           {heroMediaContent}
-          <MembershipCta
-            backdropImage={slides[activeSlideIndex].image}
-            membershipState={membershipState}
-            onJoin={onJoin}
-          />
+          {!isSnoopSlide && (
+            <MembershipCta
+              backdropImage={slides[activeSlideIndex].image}
+              membershipState={membershipState}
+              onJoin={onJoin}
+            />
+          )}
         </div>
       ) : (
         <button className="hero-media" type="button" onClick={advanceSlide} aria-label="Ver siguiente promoción">

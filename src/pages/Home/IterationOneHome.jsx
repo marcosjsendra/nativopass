@@ -7,6 +7,7 @@ export default function IterationOneHome({
   membershipState,
   onJoin,
   onMenuClick,
+  onPlayNow,
   snakeVideoSrc = '/assets/video/snake-promo-seedance-cartoon.mp4',
 }) {
   return (
@@ -18,7 +19,7 @@ export default function IterationOneHome({
           onJoin={onJoin}
         />
         <CategoryGrid iteration="iteration-1" />
-        <IterationOneSnakeRewards videoSrc={snakeVideoSrc} />
+        <IterationOneSnakeRewards videoSrc={snakeVideoSrc} onPlayNow={onPlayNow} />
       </div>
       <BottomNavigation onMenuClick={onMenuClick} />
     </div>

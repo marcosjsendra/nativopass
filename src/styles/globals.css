@@ -198,7 +198,7 @@ button:focus-visible {
   height: 100%;
   transform-origin: left;
   background: var(--color-aqua);
-  animation: hero-progress 6.5s linear both;
+  animation: hero-progress 7.5s linear both;
 }
 
 .location-picker {
