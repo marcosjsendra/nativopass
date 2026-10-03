@@ -11,6 +11,7 @@ const snoopSlideDefinition = {
 }
 
 const originalSlides = [
+  snoopSlideDefinition,
   {
     id: 'lifestyle',
     image: '/assets/images/nativo-pass-hero-slide1.png',
@@ -33,10 +34,10 @@ const originalSlides = [
       </>
     ),
   },
-  snoopSlideDefinition,
 ]
 
 const iterationOneSlides = [
+  snoopSlideDefinition,
   {
     id: 'lifestyle-new',
     image: '/assets/images/nativo-pass-hero-slide1-new.png',
@@ -48,7 +49,6 @@ const iterationOneSlides = [
       </>
     ),
   },
-  snoopSlideDefinition,
 ]
 
 const locations = ['Alajuela', 'Puntarenas', 'San José', 'Limón', 'Liberia', 'Cartago']
