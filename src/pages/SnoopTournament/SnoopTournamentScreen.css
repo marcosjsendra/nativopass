@@ -331,9 +331,22 @@
 }
 
 /* ── Reduced motion: immediate presentation ── */
-.snoop-tournament--reduced-motion *,
-@media (prefers-reduced-motion: reduce) {
+.snoop-tournament--reduced-motion .snoop-tournament__brand,
+.snoop-tournament--reduced-motion .snoop-tournament__hero-composite,
+.snoop-tournament--reduced-motion .snoop-tournament__ribbon,
+.snoop-tournament--reduced-motion .snoop-tournament__conditions,
+.snoop-tournament--reduced-motion .snoop-tournament__play-button {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
 
+.snoop-tournament--reduced-motion .snoop-tournament__brand,
+.snoop-tournament--reduced-motion .snoop-tournament__play-button {
+  transform: translateX(-50%) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .snoop-tournament__brand,
   .snoop-tournament__hero-composite,
   .snoop-tournament__ribbon,
