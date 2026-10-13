@@ -12,9 +12,10 @@ import './HeroSnoopSlide.css'
  * - beat 4: Details row and logos settle into place
  * - beat 5: Snoop Dogg cutout glides in from bottom (constrained to hero)
  */
-export default function HeroSnoopSlide({ isActive, onJoin, onAdvance }) {
+export default function HeroSnoopSlide({ isActive, membershipState, onJoin, onAdvance }) {
   const prefersReducedMotion = usePrefersReducedMotion()
   const [beat, setBeat] = useState(prefersReducedMotion ? 5 : 0)
+  const isMember = membershipState === 'member'
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -97,32 +98,34 @@ export default function HeroSnoopSlide({ isActive, onJoin, onAdvance }) {
         aria-hidden="true"
       />
 
-      {/* Guest Membership CTA card on top of Snoop Dogg cutout */}
-      <div className="hero-snoop__cta-region">
-        <section
-          className="membership-cta membership-cta--guest hero-snoop__cta"
-          aria-label="Invitación a unirse a NativoPass"
-        >
-          <img
-            className="membership-cta-backdrop"
-            src="/assets/images/conciertos/assets-ready/2x/snoopdogg-background@2x.png"
-            alt=""
-            aria-hidden="true"
-          />
-          <strong className="membership-guest-title hero-snoop__cta-title">
-            DESBLOQUEÁ<br />MIEMBROS+
-          </strong>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation()
-              onJoin?.()
-            }}
+      {/* Guest Membership CTA card on top of Snoop Dogg cutout (hidden when user is a member) */}
+      {!isMember && (
+        <div className="hero-snoop__cta-region">
+          <section
+            className="membership-cta membership-cta--guest hero-snoop__cta"
+            aria-label="Invitación a unirse a NativoPass"
           >
-            UNIRME
-          </button>
-        </section>
-      </div>
+            <img
+              className="membership-cta-backdrop"
+              src="/assets/images/conciertos/assets-ready/2x/snoopdogg-background@2x.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <strong className="membership-guest-title hero-snoop__cta-title">
+              DESBLOQUEÁ<br />MIEMBROS+
+            </strong>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                onJoin?.()
+              }}
+            >
+              UNIRME
+            </button>
+          </section>
+        </div>
+      )}
     </div>
   )
 }

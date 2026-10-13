@@ -49,7 +49,7 @@ export default function SnoopTournamentScreen({ onBack }) {
 
       {/* ── MIDDLE RIBBON: Gold promotional banner ── */}
       <div className="snoop-tournament__ribbon">
-        <p className="snoop-tournament__ribbon-line1">Y PARTICIPA PARA</p>
+        <p className="snoop-tournament__ribbon-line1">PARTICIPA PARA</p>
         <p className="snoop-tournament__ribbon-line2">
           GANAR <strong>2 ENTRADAS</strong>
         </p>

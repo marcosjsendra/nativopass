@@ -102,6 +102,7 @@ export default function Hero({ iteration, membershipState, onJoin }) {
             <HeroSnoopSlide
               key={slide.id}
               isActive={isActive}
+              membershipState={membershipState}
               onJoin={onJoin}
               onAdvance={advanceSlide}
             />
