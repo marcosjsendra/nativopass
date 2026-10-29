@@ -2,6 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import usePrefersReducedMotion from '../../hooks/usePrefersReducedMotion.js'
 import MembershipCta from '../MembershipCta/MembershipCta.jsx'
 import HeroSnoopSlide from './HeroSnoopSlide.jsx'
+import HeroShakiraSlide from './HeroShakiraSlide.jsx'
+
+const shakiraSlideDefinition = {
+  id: 'shakira',
+  image: '/assets/images/conciertos/shakira/shakira-background.png',
+  alt: 'Sorteo 2 entradas para Shakira en Costa Rica',
+  title: null,
+}
 
 const snoopSlideDefinition = {
   id: 'snoop-dogg',
@@ -11,7 +19,7 @@ const snoopSlideDefinition = {
 }
 
 const originalSlides = [
-  snoopSlideDefinition,
+  shakiraSlideDefinition,
   {
     id: 'lifestyle',
     image: '/assets/images/nativo-pass-hero-slide1.png',
@@ -37,7 +45,7 @@ const originalSlides = [
 ]
 
 const iterationOneSlides = [
-  snoopSlideDefinition,
+  shakiraSlideDefinition,
   {
     id: 'lifestyle-new',
     image: '/assets/images/nativo-pass-hero-slide1-new.png',
@@ -91,12 +99,23 @@ export default function Hero({ iteration, membershipState, onJoin }) {
     setLocationOpen(false)
   }
 
-  const isSnoopSlide = slides[activeSlideIndex]?.id === 'snoop-dogg'
+  const isConcertSlide = slides[activeSlideIndex]?.id === 'shakira' || slides[activeSlideIndex]?.id === 'snoop-dogg'
 
   const heroMediaContent = (
     <>
       {slides.map((slide, index) => {
         const isActive = index === activeSlideIndex
+        if (slide.id === 'shakira') {
+          return (
+            <HeroShakiraSlide
+              key={slide.id}
+              isActive={isActive}
+              membershipState={membershipState}
+              onJoin={onJoin}
+              onAdvance={advanceSlide}
+            />
+          )
+        }
         if (slide.id === 'snoop-dogg') {
           return (
             <HeroSnoopSlide
@@ -119,7 +138,7 @@ export default function Hero({ iteration, membershipState, onJoin }) {
         )
       })}
 
-      {!isSnoopSlide && (
+      {!isConcertSlide && (
         <>
           <div className={`hero-brand ${isRedesignIteration ? 'hero-brand--plain' : ''}`}>
             <img src="/assets/logos/Nativopass-logo.svg" alt="NativoPass" />
@@ -142,7 +161,7 @@ export default function Hero({ iteration, membershipState, onJoin }) {
       {isRedesignIteration ? (
         <div className="hero-media">
           {heroMediaContent}
-          {!isSnoopSlide && (
+          {!isConcertSlide && (
             <MembershipCta
               backdropImage={slides[activeSlideIndex].image}
               membershipState={membershipState}

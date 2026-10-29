@@ -1,0 +1,409 @@
+/* ─────────────────────────────────────────────
+   ShakiraTournamentScreen — Giveaway tournament screen
+   Shakira starry teal/blue aesthetic near #284459:
+   - Starry background
+   - Top: NativoPass white logo + Shakira tour title & date + Shakira portrait (all pushed to top)
+   - Middle: Steel blue ribbon with promotional copy
+   - Bottom: #284459 dark blue conditions box with rules & retro play button
+   - Footer: Bottom accent strip
+   ───────────────────────────────────────────── */
+
+.shakira-tournament {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0d1b26;
+  isolation: isolate;
+}
+
+/* ── Full-screen background texture ── */
+.shakira-tournament__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Circular back button (top-left) ── */
+.shakira-tournament__back {
+  position: absolute;
+  z-index: 30;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.shakira-tournament__back:hover {
+  background: rgba(0, 0, 0, 0.55);
+  transform: scale(1.05);
+}
+
+.shakira-tournament__back:active {
+  transform: scale(0.96);
+}
+
+.shakira-tournament__back svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ────────────────────────────────────────────
+   TOP SECTION: Shakira visuals
+   Exact Y: 0% to 50.8% of screen
+   ──────────────────────────────────────────── */
+.shakira-tournament__hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50.8%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* NativoPass white logo — centered at top (Y: 5.5%) */
+.shakira-tournament__brand {
+  position: absolute;
+  top: 5.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48%;
+  max-width: 195px;
+  z-index: 5;
+  pointer-events: none;
+  animation: shakira-fade-down 500ms 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.shakira-tournament__brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Concert title group: Shakira Costa Rica + Las Mujeres Ya No Lloran (Y: 15.5%) */
+.shakira-tournament__concert-group {
+  position: absolute;
+  top: 15.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  max-width: 245px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 5;
+  pointer-events: none;
+  animation: shakira-composite-fade 600ms 150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.shakira-tournament__concert-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shakira-tournament__tour-subtitle {
+  display: block;
+  width: 95%;
+  height: auto;
+}
+
+/* Shakira portrait — centered, emerging from bottom of hero header */
+.shakira-tournament__face {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 325px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 3;
+  pointer-events: none;
+  animation: shakira-face-fade 700ms 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ────────────────────────────────────────────
+   MIDDLE RIBBON: Promotional banner
+   Exact Y: 50.8% to 60.1% (height: 9.3%)
+   Near #284459 steel blue gradient
+   ──────────────────────────────────────────── */
+.shakira-tournament__ribbon {
+  position: absolute;
+  top: 50.8%;
+  left: 0;
+  right: 0;
+  height: 9.3%;
+  z-index: 10;
+  background: linear-gradient(180deg, #375e7a 0%, #284459 100%);
+  border-top: 1px solid rgba(160, 215, 245, 0.5);
+  border-bottom: 1px solid rgba(15, 30, 42, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(10, 24, 34, 0.35);
+  animation: shakira-fade-up 550ms 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.shakira-tournament__ribbon-line1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  line-height: 0.7;
+}
+
+.shakira-tournament__ribbon-line2 {
+  margin: 3px 0 0;
+  font-size: 18.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.shakira-tournament__ribbon-line2 strong {
+  font-weight: 850;
+  font-size: 21px;
+  letter-spacing: 0.02em;
+  color: #bce4f9;
+}
+
+/* ────────────────────────────────────────────
+   BOTTOM SECTION: Conditions box
+   Exact Y: 60.1% to 92.0% (height: 31.9%)
+   Dark blue #284459 theme
+   ──────────────────────────────────────────── */
+.shakira-tournament__conditions {
+  position: absolute;
+  top: 60.1%;
+  left: 0;
+  right: 0;
+  height: 31.9%;
+  z-index: 10;
+  background: linear-gradient(180deg, #284459 0%, #1a2f3f 100%);
+  padding: 16px 22px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+  animation: shakira-fade-up 600ms 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.shakira-tournament__conditions-title {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.shakira-tournament__rules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.shakira-tournament__rules li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.34;
+  color: #edf5fa;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+.shakira-tournament__bullet {
+  color: #7bc3eb;
+  font-size: 13px;
+  line-height: 1.1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Retro arcade button: Iniciar Juego with #284459 background */
+.shakira-tournament__play-button {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 0;
+  border: 0;
+  background: #284459 !important;
+  border-radius: 12px;
+  cursor: pointer;
+  display: block;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.42);
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+  animation: shakira-button-pop 450ms 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.shakira-tournament__play-button img {
+  display: block;
+  width: 205px;
+  height: auto;
+}
+
+.shakira-tournament__play-button:hover {
+  background: #355b77 !important;
+  transform: translateX(-50%) translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48);
+  filter: brightness(1.1);
+}
+
+.shakira-tournament__play-button:active {
+  background: #1d3343 !important;
+  transform: translateX(-50%) translateY(1px) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  filter: brightness(0.96);
+}
+
+/* ── Bottom footer accent (Y: 92.0% to 100%) ── */
+.shakira-tournament__footer-accent {
+  position: absolute;
+  top: 92.0%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, #375e7a 0%, #284459 100%);
+  border-top: 1px solid rgba(160, 215, 245, 0.35);
+}
+
+/* ────────────────────────────────────────────
+   ANIMATION KEYFRAMES
+   ──────────────────────────────────────────── */
+@keyframes shakira-fade-down {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes shakira-composite-fade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes shakira-face-fade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes shakira-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shakira-button-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* ── Reduced motion: immediate presentation ── */
+.shakira-tournament--reduced-motion .shakira-tournament__brand,
+.shakira-tournament--reduced-motion .shakira-tournament__concert-group,
+.shakira-tournament--reduced-motion .shakira-tournament__face,
+.shakira-tournament--reduced-motion .shakira-tournament__ribbon,
+.shakira-tournament--reduced-motion .shakira-tournament__conditions,
+.shakira-tournament--reduced-motion .shakira-tournament__play-button {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.shakira-tournament--reduced-motion .shakira-tournament__brand,
+.shakira-tournament--reduced-motion .shakira-tournament__concert-group,
+.shakira-tournament--reduced-motion .shakira-tournament__face,
+.shakira-tournament--reduced-motion .shakira-tournament__play-button {
+  transform: translateX(-50%) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shakira-tournament__brand,
+  .shakira-tournament__concert-group,
+  .shakira-tournament__face,
+  .shakira-tournament__ribbon,
+  .shakira-tournament__conditions,
+  .shakira-tournament__play-button {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .shakira-tournament__brand,
+  .shakira-tournament__concert-group,
+  .shakira-tournament__face,
+  .shakira-tournament__play-button {
+    transform: translateX(-50%) !important;
+  }
+}

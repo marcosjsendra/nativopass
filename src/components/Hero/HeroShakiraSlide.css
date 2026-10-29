@@ -1,0 +1,258 @@
+/* ─────────────────────────────────────────────
+   HeroShakiraSlide — Animated Shakira Concert Slide
+   Fits inside .hero--iteration-one .hero-media (height: 668px)
+   - NativoPass white logo: top brand header
+   - Shakira Costa Rica & Las Mujeres Ya No Lloran logo group
+   - Promo message: Volvete Miembro+ participa para ganar 2 entradas
+   - Shakira cutout: full width, sliding up from bottom
+   - Guest CTA card: dark blue (#284459) banner with UNIRME button
+   ───────────────────────────────────────────── */
+
+.hero-shakira-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: #0d1b26;
+  isolation: isolate;
+  transition: opacity 550ms var(--ease-ui, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.hero-shakira-slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Background texture ── */
+.hero-shakira__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── NativoPass white logo ── */
+.hero-shakira__brand {
+  position: absolute;
+  inset: 0 0 auto;
+  display: grid;
+  place-items: center;
+  height: 100px;
+  padding: 0 30px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-shakira__brand img {
+  display: block;
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+}
+
+/* ── Shakira Costa Rica & Tour logo group ── */
+.hero-shakira__concert-group {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 76%;
+  max-width: 280px;
+  top: 145px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-shakira__concert-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-shakira__tour-subtitle {
+  display: block;
+  width: 94%;
+  height: auto;
+  margin-top: 30px;
+}
+
+/* beat 1: fades in mid-height */
+.hero-shakira-slide--beat-1 .hero-shakira__concert-group {
+  opacity: 1;
+  top: 145px;
+}
+
+/* beat 2: shifts up as NativoPass logo settles */
+.hero-shakira-slide--beat-2 .hero-shakira__concert-group {
+  opacity: 1;
+  top: 105px;
+}
+
+/* beat 3+: moves up to final top position right below NativoPass logo */
+.hero-shakira-slide--beat-3 .hero-shakira__concert-group,
+.hero-shakira-slide--beat-4 .hero-shakira__concert-group,
+.hero-shakira-slide--beat-5 .hero-shakira__concert-group {
+  opacity: 1;
+  top: 72px;
+}
+
+/* ── Details / Promo message box (Volvete Miembro+ participa para ganar 2 entradas) ── */
+.hero-shakira__details {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74%;
+  max-width: 275px;
+  top: 245px;
+  opacity: 0;
+  cursor: pointer;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 180ms ease;
+}
+
+.hero-shakira__details:hover {
+  transform: translateX(-50%) scale(1.02);
+}
+
+.hero-shakira__details:active {
+  transform: translateX(-50%) scale(0.98);
+}
+
+/* beat 3+: promo box appears cleanly right below concert logo group */
+.hero-shakira-slide--beat-3 .hero-shakira__details,
+.hero-shakira-slide--beat-4 .hero-shakira__details,
+.hero-shakira-slide--beat-5 .hero-shakira__details {
+  opacity: 1;
+  top: 233px;
+}
+
+.hero-shakira__promo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Shakira cutout — full width, slides up smoothly from bottom on beat 5 ── */
+.hero-shakira__face {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  /* parked off-screen bottom */
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* beat 5: slides up smoothly from bottom into place */
+.hero-shakira-slide--beat-5 .hero-shakira__face {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ── Guest CTA Card on top of Shakira cutout — Dark Blue (#284459) aesthetic ── */
+.hero-shakira__cta-region {
+  position: absolute;
+  z-index: 4;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Appears on beat 5 with Shakira */
+.hero-shakira-slide--beat-5 .hero-shakira__cta-region {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.hero-shakira__cta {
+  --membership-cta-tint: rgba(40, 68, 89, 0.85) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  min-height: 84px !important;
+  padding: 16px 20px !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(180, 225, 255, 0.28) !important;
+}
+
+.hero-shakira__cta::before {
+  background: var(--membership-cta-tint) !important;
+}
+
+.hero-shakira__cta::after {
+  border: 1px solid rgba(135, 185, 215, 0.45) !important;
+}
+
+.hero-shakira__cta .membership-cta-backdrop {
+  display: none !important;
+}
+
+.hero-shakira__cta-title {
+  white-space: normal !important;
+  line-height: 1.15 !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+  margin: 0 !important;
+  color: #ffffff !important;
+}
+
+.hero-shakira__cta button {
+  color: #284459 !important;
+  background: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.hero-shakira__cta button:hover {
+  background: #edf5f9 !important;
+}
+
+/* ── Reduced motion: immediate final state ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-shakira__face,
+  .hero-shakira__brand,
+  .hero-shakira__concert-group,
+  .hero-shakira__details {
+    transition: none !important;
+    transform: translate(-50%, 0) !important;
+    opacity: 1 !important;
+  }
+
+  .hero-shakira__cta-region {
+    transition: none !important;
+    transform: none !important;
+    opacity: 0.85 !important;
+  }
+}
